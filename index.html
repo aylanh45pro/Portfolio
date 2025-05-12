@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Aylan Haddouchi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sélecteur de langue -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- Sélecteur de thème -->
+    <div class="theme-switcher">
+        <button class="theme-btn active" data-theme="jedi"><i class="fab fa-jedi-order"></i> Jedi</button>
+        <button class="theme-btn" data-theme="sith"><i class="fab fa-galactic-republic"></i> Sith</button>
+    </div>
+
+    <!-- Bouton retour en haut -->
+    <button id="back-to-top" class="back-to-top" aria-label="Retour en haut">
+        <i class="jedi-icon fab fa-jedi-order"></i>
+        <i class="sith-icon fab fa-galactic-republic"></i>
+    </button>
+
+    <div class="loading-screen">
+        <div class="lightsaber">
+            <div class="hilt"></div>
+            <div class="blade"></div>
+        </div>
+        <div class="loading-text" data-translate="loading-text">Initialisation des systèmes...</div>
+    </div>
+
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="../BGHyperspace.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <nav class="main-nav">
+        <div class="nav-icon">
+            <div class="hamburger"></div>
+        </div>
+        <ul class="nav-links">
+            <li style="--i: 0"><a href="#about" data-translate="nav-about">À propos</a></li>
+            <li style="--i: 1"><a href="#skills" data-translate="nav-skills">Compétences</a></li>
+            <li style="--i: 2"><a href="#projects" data-translate="nav-projects">Projets</a></li>
+            <li style="--i: 3"><a href="#contact" data-translate="nav-contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="glitch-text" data-translate="hero-title">Aylan Haddouchi</h1>
+                <p class="intro-text" data-translate="hero-subtitle">Portfolio</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary" data-translate="hero-cta-projects">
+                        <span>Voir mes projets</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary" data-translate="hero-cta-contact">
+                        <span>Me contacter</span>
+                    </a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrows">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section about-section">
+            <div class="section-container">
+                <h2 class="section-title" data-translate="about-title">À propos</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="highlight-text" data-translate="about-highlight">Développeur web passionné par la création d'applications et de sites internet modernes.</p>
+                        <p data-translate="about-description">Actuellement en formation BUT Informatique, je combine créativité et rigueur technique pour créer des solutions innovantes. Ma passion pour l'apprentissage m'amène à explorer différentes technologies et à repousser constamment mes limites.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <i class="fas fa-code"></i>
+                            <h3 data-translate="about-dev">Développement</h3>
+                            <p data-translate="about-dev-type">Full Stack</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3 data-translate="about-formation">Formation</h3>
+                            <p data-translate="about-formation-level">But Informatique</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <h3 data-translate="about-projects">Projets</h3>
+                            <p data-translate="about-projects-count">Scolaires et personnels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section skills-section">
+            <div class="section-container">
+                <h2 class="section-title" data-text="Compétences">Compétences</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Front-end</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-level="90">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="skill-item" data-level="85">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="skill-item" data-level="80">
+                                <i class="fab fa-js"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="skill-item" data-level="75">
+                                <i class="fab fa-bootstrap"></i>
+                                <span>Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Back-end</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-level="85">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skill-item" data-level="80">
+                                <i class="fab fa-java"></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="skill-item" data-level="75">
+                                <i class="fas fa-database"></i>
+                                <span>SQL</span>
+                            </div>
+                            <div class="skill-item" data-level="70">
+                                <i class="fas fa-code"></i>
+                                <span>C</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects-section">
+            <div class="section-container">
+                <h2 class="section-title" data-text="Projets">Projets</h2>
+                
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                    <button class="filter-btn" data-filter="python">Python</button>
+                    <button class="filter-btn" data-filter="java">Java</button>
+                    <button class="filter-btn" data-filter="html">HTML</button>
+                    <button class="filter-btn" data-filter="cpp">C++</button>
+                    <button class="filter-btn" data-filter="sql">SQL</button>
+                </div>
+
+                <div class="tech-tags">
+                    <span class="tech-tag" data-tech="c">C</span>
+                    <span class="tech-tag" data-tech="java">Java</span>
+                    <span class="tech-tag" data-tech="python">Python</span>
+                    <span class="tech-tag" data-tech="bootstrap">Bootstrap</span>
+                    <span class="tech-tag" data-tech="cpp">C++</span>
+                    <span class="tech-tag" data-tech="flask">Flask</span>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card" data-languages="python,html,css,flask,sql">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <div class="project-info">
+                                    <h3 data-translate="project1-title">Application web</h3>
+                                    <p class="project-brief" data-translate="project1-brief">Application web utilisant Python avec le framework Flask</p>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h3>Technologies</h3>
+                                <div class="project-tags">
+                                    <span class="tag" data-tech="python">Python</span>
+                                    <span class="tag" data-tech="html">HTML</span>
+                                    <span class="tag" data-tech="css">CSS</span>
+                                    <span class="tag" data-tech="bootstrap">Bootstrap</span>
+                                    <span class="tag" data-tech="flask">Flask</span>
+                                    <span class="tag" data-tech="sql">SQL</span>
+                                </div>
+                                <p class="project-description" data-translate="project1-description">
+                                    Une application web utilisant Python avec le framework Flask, les pages sont créées avec HTML/CSS en utilisant Bootstrap.
+                                </p>
+                                <div class="project-links">
+                                    <a href="https://github.com/aylanh45pro/FlaskWebApp1" class="project-link"><i class="fab fa-github"></i> <span data-translate="project-view-code">Code</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-languages="java">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <div class="project-info">
+                                    <h3 data-translate="project2-title">Vocodeur</h3>
+                                    <p class="project-brief" data-translate="project2-brief">Un vocodeur fonctionnel pour fichiers audio</p>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h3>Technologies</h3>
+                                <div class="project-tags">
+                                    <span class="tag" data-tech="java">Java</span>
+                                </div>
+                                <p class="project-description" data-translate="project2-description">
+                                    Un vocodeur Java fonctionnel, appliquant des effets (écho, modification de hauteur...) à un fichier audio.
+                                </p>
+                                <div class="project-links">
+                                    <a href="https://github.com/aylanh45pro/VocodeurAH" class="project-link"><i class="fab fa-github"></i> <span data-translate="project-view-code">Code</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-languages="html,css">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <div class="project-info">
+                                    <h3 data-translate="project3-title">Site E-Commerce</h3>
+                                    <p class="project-brief" data-translate="project3-brief">Site Web E-Commerce non fonctionnel</p>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h3>Technologies</h3>
+                                <div class="project-tags">
+                                    <span class="tag" data-tech="html">HTML</span>
+                                    <span class="tag" data-tech="css">CSS</span>
+                                </div>
+                                <p class="project-description" data-translate="project3-description">
+                                    Un site e-commerce non fonctionnel créé pour s'entraîner avec HTML/CSS
+                                </p>
+                                <div class="project-links">
+                                    <a href="https://github.com/aylanh45pro/VenD-RSite" class="project-link"><i class="fab fa-github"></i> <span data-translate="project-view-code">Code</span></a>
+                                    <a href="https://lafaymehdi.github.io/ProjetMelvyn-EComVenD-R/" class="project-link"><i class="fas fa-external-link-alt"></i> <span data-translate="project-view-demo">Démo</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-languages="html,css,bootstrap">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <div class="project-info">
+                                    <h3 data-translate="project4-title">Site présentant OVHCloud</h3>
+                                    <p class="project-brief" data-translate="project4-brief">Présenter OVHCloud sur un site internet en HTML/CSS utilisant Bootstrap</p>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h3>Technologies</h3>
+                                <div class="project-tags">
+                                    <span class="tag" data-tech="html">HTML</span>
+                                    <span class="tag" data-tech="css">CSS</span>
+                                    <span class="tag" data-tech="bootstrap">Bootstrap</span>
+                                </div>
+                                <p class="project-description" data-translate="project4-description">
+                                    Notre projet est de créer un site internet mettant en valeur l'impact économique, environnemental ainsi que l'histoire de la société OVHcloud.
+                                </p>
+                                <div class="project-links">
+                                    <a href="https://github.com/aylanh45pro/OvhCloudSite" class="project-link"><i class="fab fa-github"></i> <span data-translate="project-view-code">Code</span></a>
+                                    <a href="https://aylanh45.github.io/OVHcloud/" class="project-link"><i class="fas fa-external-link-alt"></i> <span data-translate="project-view-demo">Démo</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="section-container">
+                <h2 class="section-title" data-text="Contact">Contact</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Restons en contact</h3>
+                        <p>N'hésitez pas à me contacter pour discuter de vos projets ou pour toute opportunité de collaboration.</p>
+                        <div class="contact-links">
+                            <a href="mailto:aylan.haddouchi@edu.univ-fcomte.fr
+                            " class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>aylan.haddouchi@edu.univ-fcomte.fr
+                                </span>
+                            </a>
+                            <a href="https://github.com/aylanh45pro" class="contact-link">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/aylan-haddouchi-a60768309/" class="contact-link">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Votre email">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required placeholder="Votre message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
