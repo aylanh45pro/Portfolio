@@ -421,6 +421,9 @@ body {
     transform: translateX(-50%);
     opacity: 0;
     animation: fadeIn 1s ease-out 4s forwards;
+    text-align: center;
+    width: 30px;
+    margin: 0 auto;
 }
 
 .mouse {
@@ -429,7 +432,7 @@ body {
     border: 2px solid var(--primary);
     border-radius: 15px;
     position: relative;
-    margin-bottom: 10px;
+    margin: 0 auto 10px auto;
 }
 
 .wheel {
@@ -622,6 +625,43 @@ body {
     .lang-btn, .theme-btn {
         padding: 5px 8px;
         font-size: 0.8em;
+    }
+}
+
+/* Correction pour Samsung S21 et autres téléphones similaires */
+@media (max-width: 412px) {
+    .theme-switcher {
+        top: 10px;
+        right: 60px; /* Déplacé sur la gauche du bouton burger */
+        padding: 3px;
+        z-index: 101; /* S'assure qu'il reste visible par-dessus le menu */
+    }
+    
+    .theme-btn {
+        padding: 5px 8px;
+        font-size: 0.75em;
+    }
+    
+    .language-switcher {
+        top: 10px;
+        left: 5px;
+        padding: 3px;
+    }
+    
+    .lang-btn {
+        padding: 5px 8px;
+        font-size: 0.75em;
+    }
+    
+    /* Assurer le centrage de l'indicateur de défilement sur les petits écrans */
+    .scroll-indicator {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+    }
+    
+    .mouse {
+        margin: 0 auto 10px auto;
     }
 }
 
@@ -1052,6 +1092,28 @@ body {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 10px rgba(255, 232, 31, 0.2);
+}
+
+/* Styles pour les messages de formulaire */
+.form-status {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background-color: rgba(46, 204, 113, 0.2);
+    border: 1px solid #2ecc71;
+    color: #2ecc71;
+}
+
+.form-status.error {
+    display: block;
+    background-color: rgba(231, 76, 60, 0.2);
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
 }
 
 /* Responsive Design pour les nouvelles sections */

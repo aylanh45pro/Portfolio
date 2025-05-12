@@ -35,7 +35,7 @@
     </div>
 
     <video id="bg-video" autoplay muted loop playsinline>
-        <source src="../BGHyperspace.mp4" type="video/mp4">
+        <source src="BGHyperspace.mp4" type="video/mp4">
     </video>
 
     <div class="overlay"></div>
@@ -310,7 +310,8 @@
                             </a>
                         </div>
                     </div>
-                    <form class="contact-form">
+                    <form class="contact-form" id="contactForm" action="process_form.php" method="POST">
+                        <div class="form-status"></div>
                         <div class="form-group">
                             <input type="text" id="name" name="name" required placeholder="Votre nom">
                         </div>

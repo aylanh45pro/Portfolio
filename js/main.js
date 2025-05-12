@@ -266,4 +266,50 @@ document.addEventListener('DOMContentLoaded', () => {
             changeTheme(theme);
         });
     });
+
+    // Gestion du formulaire de contact avec AJAX
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formStatus = document.querySelector('.form-status');
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+            
+            const formData = new FormData(this);
+            
+            fetch('process_form.php', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    formStatus.textContent = data.message;
+                    formStatus.classList.add('success');
+                    contactForm.reset();
+                } else {
+                    formStatus.classList.add('error');
+                    let errorMessage = '';
+                    
+                    if (Array.isArray(data.errors)) {
+                        errorMessage = data.errors.join('<br>');
+                    } else {
+                        errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
+                    }
+                    
+                    formStatus.innerHTML = errorMessage;
+                }
+            })
+            .catch(error => {
+                formStatus.textContent = 'Une erreur est survenue lors de l\'envoi du formulaire. Veuillez réessayer.';
+                formStatus.classList.add('error');
+                console.error('Erreur:', error);
+            });
+        });
+    }
 }); 
