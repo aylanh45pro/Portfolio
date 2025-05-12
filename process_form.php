@@ -1,10 +1,26 @@
 <?php
+// Activer l'affichage des erreurs pendant le développement
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Fonction pour logger les erreurs
+function logError($message) {
+    $logFile = 'form_errors.log';
+    $timestamp = date('Y-m-d H:i:s');
+    $logMessage = "[$timestamp] $message\n";
+    file_put_contents($logFile, $logMessage, FILE_APPEND);
+}
+
 // Initialiser les variables d'erreur et de succès
 $errors = [];
 $success = false;
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Log de la réception du formulaire
+    logError("Formulaire reçu: " . json_encode($_POST));
+    
     // Récupérer les données du formulaire
     $name = trim($_POST['name'] ?? '');
     $email = trim($_POST['email'] ?? '');
@@ -33,28 +49,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email_content .= "Email: $email\n\n";
         $email_content .= "Message:\n$message\n";
         
-        $headers = "From: $email\r\n";
+        $headers = "From: contact@" . $_SERVER['HTTP_HOST'] . "\r\n";
         $headers .= "Reply-To: $email\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion();
         
-        // Tentative d'envoi d'email
-        if (mail($to, $subject, $email_content, $headers)) {
-            $success = true;
+        try {
+            // Tentative d'envoi d'email
+            $mailSent = mail($to, $subject, $email_content, $headers);
             
-            // Réinitialiser les valeurs du formulaire
-            $name = $email = $message = '';
-        } else {
-            $errors[] = 'Erreur lors de l\'envoi de l\'email. Veuillez réessayer.';
+            if ($mailSent) {
+                $success = true;
+                
+                // Réinitialiser les valeurs du formulaire
+                $name = $email = $message = '';
+                logError("Email envoyé avec succès à $to");
+            } else {
+                $errors[] = 'Erreur lors de l\'envoi de l\'email. Veuillez réessayer.';
+                logError("Échec de l'envoi d'email: mail() a retourné false");
+            }
+        } catch (Exception $e) {
+            $errors[] = 'Exception lors de l\'envoi de l\'email: ' . $e->getMessage();
+            logError("Exception: " . $e->getMessage());
         }
+    } else {
+        logError("Erreurs de validation: " . json_encode($errors));
     }
     
     // Renvoyer une réponse JSON pour les requêtes AJAX
-    if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
+    if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+        (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest' || 
+        $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest')) {
+        
         header('Content-Type: application/json');
+        
         if ($success) {
             echo json_encode(['success' => true, 'message' => 'Votre message a été envoyé avec succès!']);
         } else {
             echo json_encode(['success' => false, 'errors' => $errors]);
         }
+        logError("Réponse JSON envoyée: " . json_encode(['success' => $success, 'errors' => $errors]));
         exit;
     }
 }
@@ -105,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>Erreur lors de l'envoi du message:</h2>
             <ul>
                 <?php foreach ($errors as $error): ?>
-                    <li><?php echo $error; ?></li>
+                    <li><?php echo htmlspecialchars($error); ?></li>
                 <?php endforeach; ?>
             </ul>
             <p><a href="index.html#contact">Retour au formulaire</a></p>

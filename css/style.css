@@ -628,40 +628,56 @@ body {
     }
 }
 
-/* Correction pour Samsung S21 et autres téléphones similaires */
+/* Correction améliorée pour Samsung S21 et autres téléphones similaires */
 @media (max-width: 412px) {
     .theme-switcher {
-        top: 10px;
-        right: 60px; /* Déplacé sur la gauche du bouton burger */
-        padding: 3px;
-        z-index: 101; /* S'assure qu'il reste visible par-dessus le menu */
+        position: fixed;
+        top: 15px;
+        right: 70px;
+        padding: 2px;
+        z-index: 201;
+        background: rgba(0, 0, 0, 0.8);
     }
     
     .theme-btn {
-        padding: 5px 8px;
-        font-size: 0.75em;
+        padding: 4px 6px;
+        font-size: 0.7em;
     }
     
     .language-switcher {
-        top: 10px;
+        position: fixed;
+        top: 15px;
         left: 5px;
-        padding: 3px;
+        padding: 2px;
+        z-index: 201;
+        background: rgba(0, 0, 0, 0.8);
     }
     
     .lang-btn {
-        padding: 5px 8px;
-        font-size: 0.75em;
+        padding: 4px 6px;
+        font-size: 0.7em;
     }
     
-    /* Assurer le centrage de l'indicateur de défilement sur les petits écrans */
+    /* Centrage amélioré de l'indicateur de défilement */
     .scroll-indicator {
-        left: 50%;
-        transform: translateX(-50%);
+        position: absolute;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
         width: 30px;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        bottom: 30px;
     }
     
     .mouse {
-        margin: 0 auto 10px auto;
+        margin: 0 auto 10px auto !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    .wheel {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 }
 
@@ -1097,9 +1113,11 @@ body {
 /* Styles pour les messages de formulaire */
 .form-status {
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
     display: none;
+    font-weight: bold;
+    text-align: center;
 }
 
 .form-status.success {

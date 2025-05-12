@@ -274,8 +274,9 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             const formStatus = document.querySelector('.form-status');
-            formStatus.textContent = '';
+            formStatus.textContent = 'Envoi en cours...';
             formStatus.className = 'form-status';
+            formStatus.style.display = 'block';
             
             const formData = new FormData(this);
             
@@ -286,7 +287,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     'X-Requested-With': 'XMLHttpRequest'
                 }
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur réseau: ' + response.status);
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.success) {
                     formStatus.textContent = data.message;
@@ -306,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(error => {
-                formStatus.textContent = 'Une erreur est survenue lors de l\'envoi du formulaire. Veuillez réessayer.';
+                formStatus.textContent = 'Une erreur est survenue lors de l\'envoi du formulaire: ' + error.message;
                 formStatus.classList.add('error');
                 console.error('Erreur:', error);
             });

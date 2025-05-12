@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Aylan Haddouchi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #3498db;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info h2 {
+            color: #3498db;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: #3498db;
+            transform: translateX(5px);
+        }
+        
+        .contact-link i {
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            color: #3498db;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+            color: #2980b9;
+        }
+        
+        /* Formulaire Formspree */
+        #contact-form {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #3498db;
+        }
+        
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            border-radius: 5px;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button.btn-primary {
+            padding: 15px 30px;
+            background: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            font-size: 1em;
+        }
+        
+        button.btn-primary:hover {
+            background: #2980b9;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+        }
+        
+        .form-status {
+            padding: 15px;
+            margin: 0 0 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-status.success {
+            display: block;
+            background-color: rgba(46, 204, 113, 0.2);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+        }
+        
+        .form-status.error {
+            display: block;
+            background-color: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contactez-moi</h1>
+    
+    <div class="container">
+        <div class="contact-info">
+            <h2>Mes coordonnées</h2>
+            <p>N'hésitez pas à me contacter pour discuter de vos projets ou pour toute opportunité de collaboration.</p>
+            
+            <a href="mailto:aylan.haddouchi@edu.univ-fcomte.fr" class="contact-link">
+                <i class="fas fa-envelope"></i>
+                <span>aylan.haddouchi@edu.univ-fcomte.fr</span>
+            </a>
+            
+            <a href="https://github.com/aylanh45pro" class="contact-link">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/aylan-haddouchi-a60768309/" class="contact-link">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            
+            <div style="margin-top: 40px;">
+                <h3>À propos de ce formulaire</h3>
+                <p>Cette page de contact alternative utilise le service Formspree pour garantir l'envoi de vos messages même si PHP n'est pas disponible sur l'hébergement.</p>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <!-- Remplacez YOUR_FORMSPREE_ID par votre ID Formspree -->
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                <div class="form-status" id="form-status"></div>
+                
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" required minlength="2">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required minlength="10"></textarea>
+                </div>
+                
+                <!-- Champ anti-spam invisible pour les bots -->
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <button type="submit" class="btn-primary">Envoyer le message</button>
+            </form>
+        </div>
+    </div>
+    
+    <a href="index.html" class="back-link">← Retour au portfolio</a>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            formStatus.textContent = 'Envoi en cours...';
+            formStatus.className = 'form-status';
+            formStatus.style.display = 'block';
+            
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    formStatus.textContent = 'Message envoyé avec succès! Je vous répondrai dès que possible.';
+                    formStatus.classList.add('success');
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        formStatus.textContent = data.error || 'Oups! Un problème est survenu lors de l\'envoi du formulaire.';
+                        formStatus.classList.add('error');
+                    });
+                }
+            })
+            .catch(error => {
+                formStatus.textContent = 'Oups! Un problème est survenu lors de l\'envoi du formulaire.';
+                formStatus.classList.add('error');
+                console.error('Erreur:', error);
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -310,18 +310,21 @@
                             </a>
                         </div>
                     </div>
-                    <form class="contact-form" id="contactForm" action="process_form.php" method="POST">
-                        <div class="form-status"></div>
+                    <form class="contact-form" id="contactForm" action="process_form.php" method="POST" enctype="multipart/form-data" novalidate>
+                        <div class="form-status">Le statut du formulaire apparaîtra ici</div>
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required placeholder="Votre nom">
+                            <input type="text" id="name" name="name" required placeholder="Votre nom" minlength="2" maxlength="100">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="Votre email">
+                            <input type="email" id="email" name="email" required placeholder="Votre email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" required placeholder="Votre message"></textarea>
+                            <textarea id="message" name="message" required placeholder="Votre message" minlength="10" maxlength="1000"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        <p class="form-fallback" style="margin-top: 15px; font-size: 0.9em; color: #ccc; text-align: center;">
+                            Si le formulaire ne fonctionne pas, contactez-moi directement à <a href="mailto:aylan.haddouchi@edu.univ-fcomte.fr" style="color: var(--primary);">aylan.haddouchi@edu.univ-fcomte.fr</a>
+                        </p>
                     </form>
                 </div>
             </div>
