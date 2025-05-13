@@ -106,6 +106,25 @@
                     <div class="about-text">
                         <p class="highlight-text" data-translate="about-highlight">Développeur web passionné par la création d'applications et de sites internet modernes.</p>
                         <p data-translate="about-description">Actuellement en formation BUT Informatique, je combine créativité et rigueur technique pour créer des solutions innovantes. Ma passion pour l'apprentissage m'amène à explorer différentes technologies et à repousser constamment mes limites.</p>
+                        
+                        <!-- Console Star Wars -->
+                        <div class="sw-console">
+                            <div class="sw-console-header">
+                                <div class="sw-console-controls">
+                                    <span class="sw-console-btn"></span>
+                                    <span class="sw-console-btn"></span>
+                                    <span class="sw-console-btn"></span>
+                                </div>
+                                <div class="sw-console-title">Terminal</div>
+                            </div>
+                            <div class="sw-console-screen">
+                                <div class="sw-console-output"></div>
+                                <div class="sw-console-input-line">
+                                    <span class="sw-console-prompt">></span>
+                                    <input type="text" class="sw-console-input" placeholder="Entrez une commande..." aria-label="Console interactive" data-translate="console-input-placeholder">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="stats-grid">
                         <div class="stat-item">
@@ -182,14 +201,18 @@
             <div class="section-container">
                 <h2 class="section-title" data-text="Projets" data-translate="projects-title">Projets</h2>
                 
-                <div class="projects-filter">
-                    <button class="filter-btn active" data-filter="all">Tous</button>
-                    <button class="filter-btn" data-filter="javascript">JavaScript</button>
-                    <button class="filter-btn" data-filter="python">Python</button>
-                    <button class="filter-btn" data-filter="java">Java</button>
-                    <button class="filter-btn" data-filter="html">HTML</button>
-                    <button class="filter-btn" data-filter="cpp">C++</button>
-                    <button class="filter-btn" data-filter="sql">SQL</button>
+                <div class="sw-perspective-menu">
+                    <div class="sw-menu-container">
+                        <div class="projects-filter">
+                            <button class="filter-btn active" data-filter="all">Tous</button>
+                            <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                            <button class="filter-btn" data-filter="python">Python</button>
+                            <button class="filter-btn" data-filter="java">Java</button>
+                            <button class="filter-btn" data-filter="html">HTML</button>
+                            <button class="filter-btn" data-filter="cpp">C++</button>
+                            <button class="filter-btn" data-filter="sql">SQL</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tech-tags">

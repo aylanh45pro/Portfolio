@@ -9,6 +9,324 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.toggle('active');
     });
 
+    // Création de l'effet de particules d'étoiles
+    function createStarryBackground() {
+        // Créer le conteneur d'étoiles s'il n'existe pas déjà
+        let starsContainer = document.querySelector('.stars-container');
+        if (!starsContainer) {
+            starsContainer = document.createElement('div');
+            starsContainer.className = 'stars-container';
+            document.body.appendChild(starsContainer);
+        }
+
+        // Nombre d'étoiles à créer
+        const starCount = window.innerWidth < 768 ? 50 : 100;
+
+        // Vider le conteneur avant de créer de nouvelles étoiles
+        starsContainer.innerHTML = '';
+
+        // Créer les étoiles
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            
+            // Taille aléatoire entre 1 et 3px
+            const size = Math.random() * 2 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            
+            // Position aléatoire
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            
+            // Opacité aléatoire entre 0.2 et 1
+            star.style.opacity = Math.random() * 0.8 + 0.2;
+            
+            // Durée d'animation aléatoire entre 2 et 8 secondes
+            star.style.animationDuration = `${Math.random() * 6 + 2}s`;
+            
+            starsContainer.appendChild(star);
+        }
+    }
+
+    // Créer l'effet d'étoiles
+    createStarryBackground();
+
+    // Recréer les étoiles lors du redimensionnement de la fenêtre
+    window.addEventListener('resize', createStarryBackground);
+
+    // Animation des sections au scroll
+    function handleSectionAnimation() {
+        const sections = document.querySelectorAll('.section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    }
+
+    // Initialiser l'animation des sections
+    handleSectionAnimation();
+
+    // Console Star Wars interactive
+    function initializeConsole() {
+        const consoleInput = document.querySelector('.sw-console-input');
+        const consoleOutput = document.querySelector('.sw-console-output');
+        
+        if (!consoleInput || !consoleOutput) return;
+        
+        // Ajouter un message de bienvenue
+        const theme = document.body.classList.contains('sith-theme') ? 'sith' : 'jedi';
+        const currentLang = localStorage.getItem('language') || 'fr';
+        
+        // Mettre à jour le placeholder avec la traduction
+        consoleInput.placeholder = translations[currentLang]['console-input-placeholder'];
+        
+        const welcomeMessages = {
+            fr: {
+                jedi: "Bienvenue dans le terminal de l'Alliance Rebelle.",
+                sith: "Bienvenue dans le terminal de l'Empire Galactique."
+            },
+            en: {
+                jedi: "Welcome to the Rebel Alliance terminal.",
+                sith: "Welcome to the Galactic Empire terminal."
+            }
+        };
+        
+        const helpMessages = {
+            fr: "Tapez 'help' pour voir les commandes disponibles.",
+            en: "Type 'help' to see available commands."
+        };
+        
+        addConsoleMessage(welcomeMessages[currentLang][theme], 'info');
+        addConsoleMessage(helpMessages[currentLang], 'info');
+        
+        // Liste des commandes disponibles avec traductions
+        const commandDescriptions = {
+            fr: {
+                help: "Affiche la liste des commandes disponibles",
+                clear: "Efface le contenu de la console",
+                about: "Affiche des informations sur moi",
+                skills: "Affiche mes compétences principales",
+                projects: "Liste mes projets",
+                theme: "Change le thème (jedi/sith)",
+                force: "Utilisez la Force...",
+                version: "Affiche la version du site"
+            },
+            en: {
+                help: "Display the list of available commands",
+                clear: "Clear the console content",
+                about: "Display information about me",
+                skills: "Display my main skills",
+                projects: "List my projects",
+                theme: "Change theme (jedi/sith)",
+                force: "Use the Force...",
+                version: "Display site version"
+            }
+        };
+        
+        const consoleMessages = {
+            fr: {
+                commandsList: "Commandes disponibles:",
+                consoleCleared: "Console effacée.",
+                mainSkills: "Compétences principales:",
+                myProjects: "Mes projets:",
+                themeChanged: "Thème changé pour:",
+                themeNotRecognized: "Thème non reconnu. Utilisez 'jedi' ou 'sith'.",
+                specifyTheme: "Veuillez spécifier un thème: 'jedi' ou 'sith'",
+                darkSideMessage: "Que la colère vous guide...",
+                lightSideMessage: "Que la Force soit avec vous...",
+                commandNotFound: "Commande non reconnue:",
+                typeHelp: "Tapez 'help' pour voir les commandes disponibles.",
+                lastUpdate: "Dernière mise à jour: 2023"
+            },
+            en: {
+                commandsList: "Available commands:",
+                consoleCleared: "Console cleared.",
+                mainSkills: "Main skills:",
+                myProjects: "My projects:",
+                themeChanged: "Theme changed to:",
+                themeNotRecognized: "Theme not recognized. Use 'jedi' or 'sith'.",
+                specifyTheme: "Please specify a theme: 'jedi' or 'sith'",
+                darkSideMessage: "Let anger guide you...",
+                lightSideMessage: "May the Force be with you...",
+                commandNotFound: "Command not recognized:",
+                typeHelp: "Type 'help' to see available commands.",
+                lastUpdate: "Last update: 2023"
+            }
+        };
+        
+        // Liste des commandes disponibles
+        const commands = {
+            help: {
+                description: commandDescriptions[currentLang].help,
+                action: () => {
+                    addConsoleMessage(consoleMessages[currentLang].commandsList, 'info');
+                    Object.keys(commands).forEach(cmd => {
+                        addConsoleMessage(`${cmd}: ${commands[cmd].description}`, 'success');
+                    });
+                }
+            },
+            clear: {
+                description: commandDescriptions[currentLang].clear,
+                action: () => {
+                    consoleOutput.innerHTML = '';
+                    addConsoleMessage(consoleMessages[currentLang].consoleCleared, 'success');
+                }
+            },
+            about: {
+                description: commandDescriptions[currentLang].about,
+                action: () => {
+                    addConsoleMessage("Aylan Haddouchi", 'info');
+                    addConsoleMessage(translations[currentLang]['about-highlight'], 'info');
+                    addConsoleMessage(`${translations[currentLang]['about-formation']}: ${translations[currentLang]['about-formation-level']}`, 'info');
+                }
+            },
+            skills: {
+                description: commandDescriptions[currentLang].skills,
+                action: () => {
+                    addConsoleMessage(consoleMessages[currentLang].mainSkills, 'info');
+                    const skills = [
+                        "HTML/CSS",
+                        "JavaScript",
+                        "Python",
+                        "Java",
+                        "SQL"
+                    ];
+                    skills.forEach(skill => {
+                        addConsoleMessage(`- ${skill}`, 'success');
+                    });
+                }
+            },
+            projects: {
+                description: commandDescriptions[currentLang].projects,
+                action: () => {
+                    addConsoleMessage(consoleMessages[currentLang].myProjects, 'info');
+                    const projects = [
+                        currentLang === 'fr' ? "Application web avec Flask" : "Web application with Flask",
+                        currentLang === 'fr' ? "Vocodeur Java" : "Java Vocoder",
+                        currentLang === 'fr' ? "Site E-Commerce" : "E-Commerce Website",
+                        currentLang === 'fr' ? "Site OVHCloud" : "OVHCloud Website"
+                    ];
+                    projects.forEach(project => {
+                        addConsoleMessage(`- ${project}`, 'success');
+                    });
+                }
+            },
+            theme: {
+                description: commandDescriptions[currentLang].theme,
+                action: (args) => {
+                    if (args.length > 0) {
+                        const theme = args[0].toLowerCase();
+                        if (theme === 'jedi' || theme === 'sith') {
+                            changeTheme(theme);
+                            addConsoleMessage(`${consoleMessages[currentLang].themeChanged} ${theme}`, 'success');
+                        } else {
+                            addConsoleMessage(consoleMessages[currentLang].themeNotRecognized, 'error');
+                        }
+                    } else {
+                        addConsoleMessage(consoleMessages[currentLang].specifyTheme, 'error');
+                    }
+                }
+            },
+            force: {
+                description: commandDescriptions[currentLang].force,
+                action: () => {
+                    const theme = document.body.classList.contains('sith-theme') ? 'sith' : 'jedi';
+                    
+                    if (theme === 'sith') {
+                        addConsoleMessage(consoleMessages[currentLang].darkSideMessage, 'error');
+                        
+                        // Effet visuel côté obscur
+                        const elementsToShake = document.querySelectorAll('.project-card, .stat-item');
+                        elementsToShake.forEach(el => {
+                            el.style.transition = 'transform 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97)';
+                            el.style.transform = 'translate3d(0, 0, 0)';
+                            
+                            setTimeout(() => {
+                                el.style.transform = 'translate3d(-5px, 0, 0)';
+                                setTimeout(() => {
+                                    el.style.transform = 'translate3d(5px, 0, 0)';
+                                    setTimeout(() => {
+                                        el.style.transform = 'translate3d(0, 0, 0)';
+                                    }, 100);
+                                }, 100);
+                            }, 0);
+                        });
+                    } else {
+                        addConsoleMessage(consoleMessages[currentLang].lightSideMessage, 'success');
+                        
+                        // Effet visuel côté lumineux
+                        const elements = document.querySelectorAll('.project-card, .stat-item');
+                        elements.forEach(el => {
+                            el.style.transition = 'all 0.5s ease';
+                            el.style.boxShadow = `0 0 20px rgba(52, 152, 219, 0.7)`;
+                            
+                            setTimeout(() => {
+                                el.style.boxShadow = '';
+                            }, 1000);
+                        });
+                    }
+                }
+            },
+            version: {
+                description: commandDescriptions[currentLang].version,
+                action: () => {
+                    addConsoleMessage("Portfolio v1.0.0", 'info');
+                    addConsoleMessage(consoleMessages[currentLang].lastUpdate, 'info');
+                }
+            }
+        };
+        
+        // Fonction pour ajouter un message à la console
+        function addConsoleMessage(message, type = '') {
+            const p = document.createElement('p');
+            p.textContent = message;
+            if (type) p.classList.add(type);
+            consoleOutput.appendChild(p);
+            
+            // Scroll to bottom
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+        
+        // Gérer la saisie de commande
+        consoleInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const input = this.value.trim();
+                if (input) {
+                    // Afficher la commande saisie
+                    addConsoleMessage(`> ${input}`);
+                    
+                    // Analyser la commande
+                    const parts = input.split(' ');
+                    const command = parts[0].toLowerCase();
+                    const args = parts.slice(1);
+                    
+                    // Exécuter la commande si elle existe
+                    if (commands[command]) {
+                        commands[command].action(args);
+                    } else {
+                        addConsoleMessage(`${consoleMessages[currentLang].commandNotFound} ${command}`, 'error');
+                        addConsoleMessage(consoleMessages[currentLang].typeHelp, 'info');
+                    }
+                    
+                    // Effacer l'entrée
+                    this.value = '';
+                }
+            }
+        });
+    }
+    
+    // Initialiser la console Star Wars
+    initializeConsole();
+
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -181,6 +499,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+        
+        // Réinitialiser la console avec la nouvelle langue
+        reinitializeConsole(lang);
+    }
+    
+    // Fonction pour réinitialiser la console avec la nouvelle langue
+    function reinitializeConsole(lang) {
+        const consoleOutput = document.querySelector('.sw-console-output');
+        const consoleInput = document.querySelector('.sw-console-input');
+        
+        if (!consoleOutput || !consoleInput) return;
+        
+        // Vider la console
+        consoleOutput.innerHTML = '';
+        
+        // Réinitialiser la console
+        const theme = document.body.classList.contains('sith-theme') ? 'sith' : 'jedi';
+        
+        const welcomeMessages = {
+            fr: {
+                jedi: "Bienvenue dans le terminal de l'Alliance Rebelle.",
+                sith: "Bienvenue dans le terminal de l'Empire Galactique."
+            },
+            en: {
+                jedi: "Welcome to the Rebel Alliance terminal.",
+                sith: "Welcome to the Galactic Empire terminal."
+            }
+        };
+        
+        const helpMessages = {
+            fr: "Tapez 'help' pour voir les commandes disponibles.",
+            en: "Type 'help' to see available commands."
+        };
+        
+        // Créer une fonction d'ajout de message basée sur la fonction dans initializeConsole
+        function addMessage(message, type = '') {
+            const p = document.createElement('p');
+            p.textContent = message;
+            if (type) p.classList.add(type);
+            consoleOutput.appendChild(p);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+        
+        // Ajouter les messages de bienvenue
+        addMessage(welcomeMessages[lang][theme], 'info');
+        addMessage(helpMessages[lang], 'info');
+        
+        // Mettre à jour le placeholder de l'input de la console
+        consoleInput.placeholder = lang === 'fr' ? "Entrez une commande..." : "Enter a command...";
     }
 
     // Initialiser la langue
@@ -198,23 +565,107 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopButton = document.getElementById('back-to-top');
     let lastScrollPosition = 0;
 
-    function handleScroll() {
-        const currentScrollPosition = window.pageYOffset;
+    // Star Wars Animations - Version améliorée
+    function initializeStarWarsAnimations() {
+        // Ajout de l'attribut data-text au titre principal pour l'effet hologramme
+        const heroTitle = document.querySelector('.hero-content h1');
+        if (heroTitle && !heroTitle.hasAttribute('data-text')) {
+            heroTitle.setAttribute('data-text', heroTitle.textContent);
+        }
+
+        // Ajouter la classe de base pour le thème actif
+        document.body.classList.add('jedi-theme');
         
-        // Afficher le bouton quand on scrolle vers le bas et qu'on dépasse 300px
-        if (currentScrollPosition > 300) {
+        // Ajouter une classe spéciale aux projets pour animations différenciées par thème
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+            card.classList.add('project-animation');
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    }
+
+    // Initialiser les animations Star Wars
+    initializeStarWarsAnimations();
+
+    // Gestion du changement de thème
+    function changeTheme(theme) {
+        // Animation de transition pour le changement de thème
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.backgroundColor = theme === 'sith' ? 'rgba(231, 76, 60, 0.2)' : 'rgba(52, 152, 219, 0.2)';
+        overlay.style.zIndex = '9999';
+        overlay.style.opacity = '0';
+        overlay.style.transition = 'opacity 0.3s ease';
+        document.body.appendChild(overlay);
+        
+        // Animer l'overlay
+        setTimeout(() => {
+            overlay.style.opacity = '1';
+            
+            setTimeout(() => {
+                // Mettre à jour les boutons de thème
+                const themeButtons = document.querySelectorAll('.theme-btn');
+                themeButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.theme === theme) {
+                        btn.classList.add('active');
+                    }
+                });
+        
+                // Sauvegarder le thème choisi
+                localStorage.setItem('theme', theme);
+        
+                // Mettre à jour le thème
+                if (theme === 'sith') {
+                    document.body.classList.remove('jedi-theme');
+                    document.body.classList.add('sith-theme');
+                    document.documentElement.style.setProperty('--primary-rgb', '231, 76, 60');
+                } else {
+                    document.body.classList.remove('sith-theme');
+                    document.body.classList.add('jedi-theme');
+                    document.documentElement.style.setProperty('--primary-rgb', '52, 152, 219');
+                }
+                
+                // Masquer l'overlay
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(overlay);
+                }, 300);
+            }, 300);
+        }, 10);
+    }
+
+    // Initialiser le thème
+    const savedTheme = localStorage.getItem('theme') || 'jedi';
+    changeTheme(savedTheme);
+
+    // Écouteurs d'événements pour les boutons de thème
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    themeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const theme = btn.dataset.theme;
+            changeTheme(theme);
+        });
+    });
+
+    // Écouteur d'événement pour détecter le scroll et afficher/masquer le bouton retour en haut
+    window.addEventListener('scroll', () => {
+        const currentPosition = window.pageYOffset;
+        
+        if (currentPosition > 300) {
             backToTopButton.classList.add('visible');
         } else {
             backToTopButton.classList.remove('visible');
         }
+        
+        lastScrollPosition = currentPosition;
+    });
 
-        lastScrollPosition = currentScrollPosition;
-    }
-
-    // Écouter le scroll
-    window.addEventListener('scroll', handleScroll);
-
-    // Gérer le clic sur le bouton retour en haut
+    // Écouteur d'événement pour le bouton retour en haut
     backToTopButton.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -231,42 +682,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mettre à jour les textes initiaux
     changeLanguage(currentLang);
     
-    // Gestion du changement de thème
-    const themeButtons = document.querySelectorAll('.theme-btn');
-    const currentTheme = localStorage.getItem('theme') || 'jedi';
-    
-    // Fonction pour changer le thème
-    function changeTheme(theme) {
-        // Mettre à jour les boutons de thème
-        themeButtons.forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.dataset.theme === theme) {
-                btn.classList.add('active');
-            }
-        });
-        
-        // Appliquer le thème
-        if (theme === 'sith') {
-            document.body.classList.add('sith-theme');
-        } else {
-            document.body.classList.remove('sith-theme');
-        }
-        
-        // Sauvegarder le thème choisi
-        localStorage.setItem('theme', theme);
-    }
-    
-    // Initialiser le thème
-    changeTheme(currentTheme);
-    
-    // Écouteurs d'événements pour les boutons de thème
-    themeButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const theme = btn.dataset.theme;
-            changeTheme(theme);
-        });
-    });
-
     // Gestion du formulaire de contact avec AJAX
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {

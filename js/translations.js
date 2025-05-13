@@ -23,6 +23,9 @@ const translations = {
         'about-projects': 'Projets',
         'about-projects-count': 'Scolaires et personnels',
 
+        // Console terminal
+        'console-input-placeholder': 'Entrez une commande...',
+
         // Compétences
         'skills-title': 'Compétences',
         'skills-frontend': 'Front-end',
@@ -88,6 +91,9 @@ const translations = {
         'about-formation-level': 'Bachelor of Technology in Computer Science',
         'about-projects': 'Projects',
         'about-projects-count': 'Academic and personal',
+
+        // Console terminal
+        'console-input-placeholder': 'Enter a command...',
 
         // Skills
         'skills-title': 'Skills',
