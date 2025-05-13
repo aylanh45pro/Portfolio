@@ -89,6 +89,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // Mettre à jour le placeholder avec la traduction
         consoleInput.placeholder = translations[currentLang]['console-input-placeholder'];
         
+        // Mettre à jour le titre du terminal en fonction du thème et de la langue
+        const terminalTitle = document.querySelector('.sw-console-title');
+        if (terminalTitle) {
+            if (currentLang === 'fr') {
+                terminalTitle.textContent = theme === 'sith' ? 'Terminal Impérial' : 'Terminal Rebelle';
+            } else {
+                terminalTitle.textContent = theme === 'sith' ? 'Imperial Terminal' : 'Rebel Terminal';
+            }
+        }
+        
+        // Mettre à jour les classes visuelles du terminal
+        const terminal = document.querySelector('.sw-console');
+        if (terminal) {
+            terminal.classList.remove('jedi-terminal', 'sith-terminal');
+            terminal.classList.add(theme === 'sith' ? 'sith-terminal' : 'jedi-terminal');
+        }
+        
         const welcomeMessages = {
             fr: {
                 jedi: "Bienvenue dans le terminal de l'Alliance Rebelle.",
@@ -497,6 +514,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     element.textContent = translations[lang][key];
                 }
+                
+                // Si c'est un titre de section, mettre à jour son attribut data-text et son élément d'arrière-plan
+                if (element.classList.contains('section-title')) {
+                    // Mettre à jour l'attribut data-text pour correspondre au nouveau texte
+                    element.setAttribute('data-text', translations[lang][key]);
+                    
+                    const bgElement = element.previousElementSibling;
+                    if (bgElement && bgElement.classList.contains('section-title-bg')) {
+                        bgElement.textContent = translations[lang][key];
+                    }
+                }
             });
         });
         
@@ -548,6 +576,23 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Mettre à jour le placeholder de l'input de la console
         consoleInput.placeholder = lang === 'fr' ? "Entrez une commande..." : "Enter a command...";
+        
+        // Mettre à jour le titre du terminal en fonction du thème et de la langue
+        const terminalTitle = document.querySelector('.sw-console-title');
+        if (terminalTitle) {
+            if (lang === 'fr') {
+                terminalTitle.textContent = theme === 'sith' ? 'Terminal Impérial' : 'Terminal Rebelle';
+            } else {
+                terminalTitle.textContent = theme === 'sith' ? 'Imperial Terminal' : 'Rebel Terminal';
+            }
+        }
+        
+        // Mettre à jour les classes visuelles du terminal
+        const terminal = document.querySelector('.sw-console');
+        if (terminal) {
+            terminal.classList.remove('jedi-terminal', 'sith-terminal');
+            terminal.classList.add(theme === 'sith' ? 'sith-terminal' : 'jedi-terminal');
+        }
     }
 
     // Initialiser la langue
@@ -630,6 +675,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.documentElement.style.setProperty('--primary-rgb', '52, 152, 219');
                 }
                 
+                // Mettre à jour le terminal avec le nouveau thème
+                updateTerminalForTheme(theme);
+                
                 // Masquer l'overlay
                 overlay.style.opacity = '0';
                 setTimeout(() => {
@@ -637,6 +685,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 300);
             }, 300);
         }, 10);
+    }
+    
+    // Fonction pour mettre à jour le terminal en fonction du thème
+    function updateTerminalForTheme(theme) {
+        const consoleOutput = document.querySelector('.sw-console-output');
+        const currentLang = localStorage.getItem('language') || 'fr';
+        
+        if (!consoleOutput) return;
+        
+        // Définir les messages de bienvenue basés sur le thème
+        const welcomeMessages = {
+            fr: {
+                jedi: "Bienvenue dans le terminal de l'Alliance Rebelle.",
+                sith: "Bienvenue dans le terminal de l'Empire Galactique."
+            },
+            en: {
+                jedi: "Welcome to the Rebel Alliance terminal.",
+                sith: "Welcome to the Galactic Empire terminal."
+            }
+        };
+        
+        // Récupérer tous les messages du terminal
+        const messages = consoleOutput.querySelectorAll('p');
+        
+        // Mise à jour visuelle du terminal
+        const terminal = document.querySelector('.sw-console');
+        if (terminal) {
+            // Ajouter une classe pour l'animation de transition
+            terminal.classList.add('theme-transition');
+            
+            // Retirer l'animation après qu'elle soit terminée
+            setTimeout(() => {
+                terminal.classList.remove('theme-transition');
+            }, 500);
+            
+            // Réinitialiser les classes de thème
+            terminal.classList.remove('jedi-terminal', 'sith-terminal');
+            
+            // Ajouter la classe correspondante au thème actuel
+            terminal.classList.add(theme === 'sith' ? 'sith-terminal' : 'jedi-terminal');
+            
+            // Mettre à jour le titre du terminal
+            const terminalTitle = document.querySelector('.sw-console-title');
+            if (terminalTitle) {
+                if (currentLang === 'fr') {
+                    terminalTitle.textContent = theme === 'sith' ? 'Terminal Impérial' : 'Terminal Rebelle';
+                } else {
+                    terminalTitle.textContent = theme === 'sith' ? 'Imperial Terminal' : 'Rebel Terminal';
+                }
+            }
+            
+            // Si le premier message est un message de bienvenue, le mettre à jour avec animation
+            if (messages.length > 0 && messages[0].classList.contains('info')) {
+                // Créer une animation de fondu pour le message
+                messages[0].style.transition = 'opacity 0.3s ease';
+                messages[0].style.opacity = '0';
+                
+                setTimeout(() => {
+                    messages[0].textContent = welcomeMessages[currentLang][theme];
+                    messages[0].style.opacity = '1';
+                }, 300);
+            }
+        }
     }
 
     // Initialiser le thème
@@ -677,6 +788,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-text]').forEach(element => {
         const key = element.getAttribute('data-text').toLowerCase();
         element.setAttribute('data-translate', `nav-${key}`);
+    });
+
+    // Créer les éléments d'arrière-plan pour les titres de section
+    document.querySelectorAll('.section-title').forEach(title => {
+        const titleText = title.getAttribute('data-text') || title.textContent;
+        const bgElement = document.createElement('div');
+        bgElement.className = 'section-title-bg';
+        bgElement.textContent = titleText;
+        title.parentNode.insertBefore(bgElement, title);
     });
 
     // Mettre à jour les textes initiaux

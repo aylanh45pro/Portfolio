@@ -25,11 +25,24 @@ const translations = {
 
         // Console terminal
         'console-input-placeholder': 'Entrez une commande...',
+        'terminal-title': 'Terminal',
+        'terminal-jedi': 'Terminal Rebelle',
+        'terminal-sith': 'Terminal Impérial',
 
         // Compétences
         'skills-title': 'Compétences',
         'skills-frontend': 'Front-end',
         'skills-backend': 'Back-end',
+
+        // Filtres de projets
+        'filter-all': 'Tous',
+        'filter-javascript': 'JavaScript',
+        'filter-python': 'Python',
+        'filter-java': 'Java',
+        'filter-html': 'HTML',
+        'filter-cpp': 'C++',
+        'filter-sql': 'SQL',
+        'technologies-title': 'Technologies',
 
         // Projets
         'projects-title': 'Projets',
@@ -64,6 +77,10 @@ const translations = {
         'form-status': 'Le statut du formulaire apparaîtra ici',
         'form-fallback': 'Si le formulaire ne fonctionne pas, contactez-moi directement à',
 
+        // Thème
+        'theme-jedi': 'Jedi',
+        'theme-sith': 'Sith',
+
         // Autres
         'loading-text': 'Initialisation des systèmes...',
         'back-to-top': 'Retour en haut'
@@ -94,11 +111,24 @@ const translations = {
 
         // Console terminal
         'console-input-placeholder': 'Enter a command...',
+        'terminal-title': 'Terminal',
+        'terminal-jedi': 'Rebel Terminal',
+        'terminal-sith': 'Imperial Terminal',
 
         // Skills
         'skills-title': 'Skills',
         'skills-frontend': 'Front-end',
         'skills-backend': 'Back-end',
+
+        // Project filters
+        'filter-all': 'All',
+        'filter-javascript': 'JavaScript',
+        'filter-python': 'Python',
+        'filter-java': 'Java',
+        'filter-html': 'HTML',
+        'filter-cpp': 'C++',
+        'filter-sql': 'SQL',
+        'technologies-title': 'Technologies',
 
         // Projects
         'projects-title': 'Projects',
@@ -132,6 +162,10 @@ const translations = {
         'contact-send': 'Send message',
         'form-status': 'Form status will appear here',
         'form-fallback': 'If the form does not work, contact me directly at',
+
+        // Theme
+        'theme-jedi': 'Jedi',
+        'theme-sith': 'Sith',
 
         // Others
         'loading-text': 'Initializing systems...',

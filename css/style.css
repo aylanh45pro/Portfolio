@@ -292,7 +292,7 @@ body {
     color: var(--primary);
     text-transform: uppercase;
     position: relative;
-    text-shadow: 0 0 10px var(--primary);
+    text-shadow: 0 0 5px var(--primary);
     margin-bottom: 20px;
 }
 
@@ -691,7 +691,7 @@ body {
     .hamburger {
         width: 25px;
     }
-    
+
     .hamburger::before,
     .hamburger::after {
         width: 25px;
@@ -728,110 +728,112 @@ body {
     }
 }
 
-@media (max-width: 412px) {
-    .theme-switcher {
-        position: fixed;
-        top: 10px;
-        right: 60px;
-        padding: 1px;
-        z-index: 201;
-        background: rgba(0, 0, 0, 0.8);
-        border-radius: 15px;
+/* Star Wars Animations - Version simplifiée */
+@keyframes hologram-flicker {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
     }
-    
-    .theme-btn {
-        padding: 2px 4px;
-        font-size: 0.6em;
+    10% {
+        opacity: 0.8;
+        transform: scale(0.995) skewX(0.5deg);
     }
-    
-    .language-switcher {
-        position: fixed;
-        top: 10px;
-        left: 5px;
-        padding: 1px;
-        z-index: 201;
-        background: rgba(0, 0, 0, 0.8);
-        border-radius: 15px;
+    20% {
+        opacity: 0.95;
+        transform: scale(1) skewX(-0.25deg);
     }
-    
-    .lang-btn {
-        padding: 2px 4px;
-        font-size: 0.6em;
+    30% {
+        opacity: 0.85;
+        transform: scale(0.998);
     }
-    
-    .nav-icon {
-        width: 25px;
-        height: 25px;
-        top: 10px;
-        right: 15px;
+    40% {
+        opacity: 0.9;
+        transform: scale(1.002) skewX(0.125deg);
     }
-    
-    .hamburger {
-        width: 25px;
+    50% {
+        opacity: 0.75;
+        transform: scale(0.997);
     }
-    
-    .hamburger::before,
-    .hamburger::after {
-        width: 25px;
+    60% {
+        opacity: 1;
+        transform: scale(1) skewX(-0.15deg);
     }
-    
-    /* Centrage amélioré de l'indicateur de défilement */
-    .scroll-indicator {
-        position: absolute;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 30px;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        bottom: 30px;
-    }
-    
-    .mouse {
-        margin: 0 auto 10px auto !important;
-        left: 0 !important;
-        right: 0 !important;
-    }
-    
-    .wheel {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-    }
-
-    /* Ajuster les icônes dans les boutons de thème */
-    .mobile-toolbar .theme-btn i {
-        font-size: 1.1em;
-    }
-    
-    /* Agrandir légèrement les icônes pour faciliter le clic */
-    .mobile-toolbar .theme-btn {
-        padding: 4px 6px;
-        min-width: 30px;
-        text-align: center;
-    }
-    
-    /* Rendre le hamburger plus visible */
-    .mobile-toolbar .hamburger,
-    .mobile-toolbar .hamburger::before,
-    .mobile-toolbar .hamburger::after {
-        height: 3px;
-        background: var(--primary);
+    80% {
+        opacity: 0.95;
+        transform: scale(1);
     }
 }
 
-@media (max-width: 375px) {
-    .mobile-toolbar {
-        padding: 6px 8px;
+@keyframes starship-hover {
+    0%, 100% {
+        transform: translateY(0);
     }
-    
-    .theme-btn, .lang-btn {
-        padding: 2px 3px;
-        font-size: 0.65em;
+    50% {
+        transform: translateY(-5px);
     }
-    
-    /* Minimiser davantage l'espace entre les éléments */
-    .mobile-toolbar .controls-right {
-        gap: 2px;
+}
+
+@keyframes imperial-march {
+    0%, 100% {
+        transform: translateY(0);
     }
+    25% {
+        transform: translateY(-2px);
+    }
+    75% {
+        transform: translateY(2px);
+    }
+}
+
+/* RGB variables for animations */
+:root {
+    --primary-rgb: 52, 152, 219; /* Jedi blue */
+}
+
+.sith-theme {
+    --primary-rgb: 231, 76, 60; /* Sith red */
+}
+
+/* Applied Animations - Simplified */
+.project-card:hover .project-card-front h3 {
+    animation: hologram-flicker 3s infinite;
+    text-shadow: 0 0 5px var(--primary);
+}
+
+/* Theme-specific animations */
+.jedi-theme .nav-links li:hover {
+    animation: starship-hover 2s ease-in-out infinite;
+}
+
+.sith-theme .nav-links li:hover {
+    animation: imperial-march 1s ease-in-out infinite;
+}
+
+/* Hologram effect for the hero headline */
+.hero-content h1 {
+    position: relative;
+}
+
+.hero-content h1::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary);
+    opacity: 0.5;
+    animation: hologram-flicker 3s infinite;
+    z-index: -1;
+}
+
+/* Removing other Star Wars animations to keep just the requested ones */
+.skill-item:hover i {
+    color: var(--primary);
+}
+
+.nav-links li:hover::after {
+    /* Keep existing behavior without the flicker animation */
+    width: 100%;
+    opacity: 1;
 }
 
 /* Sections communes */
@@ -860,17 +862,25 @@ body {
     text-transform: uppercase;
 }
 
+/* Suppression complète du pseudo-élément problématique */
 .section-title::after {
-    content: attr(data-text);
+    display: none;
+}
+
+/* Création d'une nouvelle classe pour le titre d'arrière-plan */
+.section-title-bg {
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -20px;
+    left: 0;
     width: 100%;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3em;
     color: var(--primary);
     opacity: 0.1;
-    font-size: 3em;
+    text-align: center;
     z-index: -1;
+    text-transform: uppercase;
+    pointer-events: none;
 }
 
 /* Section À propos */
@@ -1839,4 +1849,526 @@ a, button, .btn, .project-card, .skill-item, .tag, .tech-tag, .stat-item {
     .mobile-toolbar .controls-right {
         gap: 2px;
     }
+}
+
+/* Star Wars Particles Effect */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: starTwinkle linear infinite;
+}
+
+@keyframes starTwinkle {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes float-in-space {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* 3D Card Effect for Project Cards */
+.project-card-inner {
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card:hover .project-card-inner {
+    transform: rotateY(180deg) scale(1.05);
+}
+
+/* Améliorations des titres de section */
+.section-title {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    width: 30%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    left: 35%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Amélioration des boutons avec effet Glow */
+.btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.jedi-theme .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.7),
+                0 0 40px rgba(52, 152, 219, 0.4);
+}
+
+.sith-theme .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.7),
+                0 0 40px rgba(231, 76, 60, 0.4);
+}
+
+/* Animation d'entrée améliorée pour les sections */
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation du sabre laser améliorée */
+@keyframes saberIgnite-enhanced {
+    0% {
+        width: 0;
+        opacity: 0.3;
+        box-shadow: 0 0 5px var(--primary);
+    }
+    30% {
+        opacity: 0.5;
+        box-shadow: 0 0 8px var(--primary),
+                   0 0 12px var(--primary);
+    }
+    60% {
+        opacity: 0.8;
+        box-shadow: 0 0 8px var(--primary),
+                   0 0 16px var(--primary),
+                   0 0 20px rgba(255, 232, 31, 0.5);
+    }
+    100% {
+        width: 100%;
+        opacity: 1;
+        box-shadow: 0 0 8px var(--primary),
+                   0 0 16px var(--primary),
+                   0 0 24px rgba(255, 232, 31, 0.7);
+    }
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+    opacity: 1;
+    animation: saberIgnite-enhanced 0.4s ease-out forwards;
+}
+
+/* Animation flottante pour les stats items */
+.jedi-theme .stat-item:hover {
+    animation: float-in-space 1.5s ease-in-out infinite;
+}
+
+/* Effet de force pour les cartes de projets en mode Sith */
+.sith-theme .project-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+}
+
+/* Console Star Wars */
+.sw-console {
+    margin: 30px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    font-family: 'Orbitron', monospace;
+    background: rgb(20, 20, 30);
+    border: 1px solid var(--primary);
+    transform: perspective(800px) rotateX(5deg);
+    transition: all 0.3s ease;
+}
+
+.sw-console:hover {
+    transform: perspective(800px) rotateX(0);
+    box-shadow: 0 15px 40px rgba(var(--primary-rgb), 0.3);
+}
+
+.jedi-theme .sw-console {
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .sw-console {
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Styles spécifiques pour les thèmes du terminal */
+.jedi-terminal {
+    background: rgba(20, 30, 40, 0.95);
+    border-color: #3498db;
+}
+
+.sith-terminal {
+    background: rgba(30, 20, 20, 0.95);
+    border-color: #e74c3c;
+}
+
+.jedi-terminal .sw-console-header {
+    background: rgba(40, 60, 80, 0.9);
+    border-bottom-color: rgba(52, 152, 219, 0.6);
+}
+
+.sith-terminal .sw-console-header {
+    background: rgba(60, 30, 30, 0.9);
+    border-bottom-color: rgba(231, 76, 60, 0.6);
+}
+
+.jedi-terminal .sw-console-screen {
+    background: linear-gradient(to bottom,
+                 rgba(52, 152, 219, 0.05) 0%,
+                 rgba(52, 152, 219, 0.02) 100%);
+}
+
+.sith-terminal .sw-console-screen {
+    background: linear-gradient(to bottom,
+                 rgba(231, 76, 60, 0.05) 0%,
+                 rgba(231, 76, 60, 0.02) 100%);
+}
+
+.jedi-terminal .sw-console-prompt {
+    color: #3498db;
+}
+
+.sith-terminal .sw-console-prompt {
+    color: #e74c3c;
+}
+
+.jedi-terminal .sw-console-output .info {
+    color: #3498db;
+}
+
+.sith-terminal .sw-console-output .info {
+    color: #e74c3c;
+}
+
+.jedi-terminal .sw-console-title {
+    color: #3498db;
+}
+
+.sith-terminal .sw-console-title {
+    color: #e74c3c;
+}
+
+.sw-console-header {
+    background: rgb(40, 40, 50);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(var(--primary-rgb), 0.4);
+}
+
+.sw-console-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.sw-console-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+}
+
+.sw-console-btn:nth-child(1) {
+    background-color: #ff5f56;
+}
+
+.sw-console-btn:nth-child(2) {
+    background-color: #ffbd2e;
+}
+
+.sw-console-btn:nth-child(3) {
+    background-color: #27c93f;
+}
+
+.sw-console-title {
+    color: var(--primary);
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.sw-console-screen {
+    padding: 15px;
+    min-height: 180px;
+    max-height: 180px;
+    overflow-y: auto;
+    color: var(--light);
+    font-size: 14px;
+    background: linear-gradient(to bottom, 
+                 rgba(var(--primary-rgb), 0.05) 0%, 
+                 rgba(var(--primary-rgb), 0.02) 100%);
+}
+
+.sw-console-output {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.sw-console-output p {
+    margin: 0;
+    padding: 2px 0;
+    color: #b2b2b2;
+}
+
+.sw-console-output .success {
+    color: #27c93f;
+}
+
+.sw-console-output .error {
+    color: #ff5f56;
+}
+
+.sw-console-output .info {
+    color: var(--primary);
+}
+
+.sw-console-input-line {
+    display: flex;
+    align-items: center;
+}
+
+.sw-console-prompt {
+    color: var(--primary);
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.sw-console-input {
+    background: transparent;
+    border: none;
+    color: var(--light);
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    outline: none;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .sw-console {
+        margin: 20px 0;
+        transform: none;
+    }
+    
+    .sw-console-screen {
+        min-height: 150px;
+        max-height: 150px;
+    }
+}
+
+/* Effet de scan sur la console */
+.sw-console::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(var(--primary-rgb), 0.1),
+        transparent
+    );
+    animation: console-scan 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes console-scan {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 200%;
+    }
+}
+
+/* Effet de curseur clignotant */
+.sw-console-input::after {
+    content: '|';
+    display: inline-block;
+    color: var(--primary);
+    animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Animation pour le changement de thème du terminal */
+@keyframes terminal-theme-transition {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.98);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.sw-console.theme-transition {
+    animation: terminal-theme-transition 0.5s ease;
+}
+
+/* Amélioration des animations existantes */
+.glitch-text {
+    filter: drop-shadow(0 0 5px var(--primary));
+}
+
+.jedi-theme .btn-primary {
+    background: linear-gradient(135deg, var(--primary), #2980b9);
+}
+
+.sith-theme .btn-primary {
+    background: linear-gradient(135deg, var(--primary), #c0392b);
+}
+
+.contact-link:hover i {
+    transform: scale(1.2) rotate(360deg);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
 } 
