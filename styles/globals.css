@@ -5,6 +5,8 @@ body {
   font-family: 'Orbitron', sans-serif;
   background: black;
   color: #FFE81F;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Styles mobiles */
@@ -47,6 +49,29 @@ body {
   .project-card:active {
     transform: scale(0.98);
   }
+}
+
+/* Ajustements pour les petits écrans */
+@media screen and (max-width: 380px) {
+  html {
+    font-size: 14px; /* Réduire légèrement la taille de base de la police */
+  }
+
+  .main-content {
+    padding: 0.5rem;
+  }
+
+  /* Ajuster la taille du texte dans le menu */
+  .mobile-menu-link {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Correction du viewport height pour les mobiles */
+.min-h-screen {
+  min-height: 100vh; /* Fallback */
+  min-height: -webkit-fill-available;
+  min-height: 100dvh; /* Modern viewport height */
 }
 
 /* Effets de hover personnalisés */
