@@ -354,7 +354,7 @@
                             </a>
                         </div>
                     </div>
-                    <form class="contact-form" id="contactForm" action="process_form.php" method="POST" enctype="multipart/form-data" novalidate>
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqkvveyk" method="POST">
                         <div class="form-status" data-translate="form-status">Le statut du formulaire apparaîtra ici</div>
                         <div class="form-group">
                             <input type="text" id="name" name="name" required placeholder="Votre nom" data-translate="contact-name" minlength="2" maxlength="100">
@@ -365,6 +365,9 @@
                         <div class="form-group">
                             <textarea id="message" name="message" required placeholder="Votre message" data-translate="contact-message" minlength="10" maxlength="1000"></textarea>
                         </div>
+                        <!-- Champs cachés pour Formspree -->
+                        <input type="hidden" name="_subject" value="Nouveau message depuis le Portfolio">
+                        <input type="hidden" name="_next" value="https://aylanh45.github.io/Portfolio/thanks.html">
                         <button type="submit" class="btn btn-primary" data-translate="contact-send">Envoyer le message</button>
                         <p class="form-fallback" style="margin-top: 15px; font-size: 0.9em; color: #ccc; text-align: center;">
                             <span data-translate="form-fallback">Si le formulaire ne fonctionne pas, contactez-moi directement à</span> <a href="mailto:aylan.haddouchi@edu.univ-fcomte.fr" style="color: var(--primary);">aylan.haddouchi@edu.univ-fcomte.fr</a>

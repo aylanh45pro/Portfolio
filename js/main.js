@@ -802,54 +802,61 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mettre à jour les textes initiaux
     changeLanguage(currentLang);
     
-    // Gestion du formulaire de contact avec AJAX
+    // Gestion du formulaire de contact avec Formspree
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const formStatus = document.querySelector('.form-status');
-            formStatus.textContent = 'Envoi en cours...';
+            const currentLang = localStorage.getItem('language') || 'fr';
+            
+            formStatus.textContent = translations[currentLang]['form-sending'];
             formStatus.className = 'form-status';
             formStatus.style.display = 'block';
             
+            // Récupérer les données du formulaire
+            const name = contactForm.querySelector('#name').value.trim();
+            const email = contactForm.querySelector('#email').value.trim();
+            const message = contactForm.querySelector('#message').value.trim();
+            
+            // Validation simple côté client
+            const errors = [];
+            if (!name) errors.push(translations[currentLang]['form-error-name']);
+            if (!email) errors.push(translations[currentLang]['form-error-email']);
+            if (!message) errors.push(translations[currentLang]['form-error-message']);
+            
+            if (errors.length > 0) {
+                formStatus.innerHTML = errors.join('<br>');
+                formStatus.classList.add('error');
+                return;
+            }
+            
             const formData = new FormData(this);
             
-            fetch('process_form.php', {
+            fetch(contactForm.action, {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
+                    'Accept': 'application/json'
                 }
             })
             .then(response => {
-                if (!response.ok) {
+                if (response.ok) {
+                    return response.json();
+                } else {
                     throw new Error('Erreur réseau: ' + response.status);
                 }
-                return response.json();
             })
             .then(data => {
-                if (data.success) {
-                    formStatus.textContent = data.message;
-                    formStatus.classList.add('success');
-                    contactForm.reset();
-                } else {
-                    formStatus.classList.add('error');
-                    let errorMessage = '';
-                    
-                    if (Array.isArray(data.errors)) {
-                        errorMessage = data.errors.join('<br>');
-                    } else {
-                        errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
-                    }
-                    
-                    formStatus.innerHTML = errorMessage;
-                }
+                formStatus.textContent = translations[currentLang]['form-success'];
+                formStatus.classList.add('success');
+                contactForm.reset();
             })
             .catch(error => {
-                formStatus.textContent = 'Une erreur est survenue lors de l\'envoi du formulaire: ' + error.message;
-                formStatus.classList.add('error');
                 console.error('Erreur:', error);
+                formStatus.textContent = `${translations[currentLang]['form-error']} (${error.message})`;
+                formStatus.classList.add('error');
             });
         });
     }

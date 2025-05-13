@@ -76,6 +76,15 @@ const translations = {
         'contact-send': 'Envoyer le message',
         'form-status': 'Le statut du formulaire apparaîtra ici',
         'form-fallback': 'Si le formulaire ne fonctionne pas, contactez-moi directement à',
+        
+        // Formulaire messages
+        'form-sending': 'Envoi en cours...',
+        'form-success': 'Votre message a été envoyé avec succès!',
+        'form-error': 'Une erreur est survenue. Veuillez réessayer.',
+        'form-error-fetch': 'Le formulaire ne peut pas être traité actuellement. Veuillez envoyer votre message directement par email.',
+        'form-error-name': 'Le nom est requis',
+        'form-error-email': 'L\'email est requis',
+        'form-error-message': 'Le message est requis',
 
         // Thème
         'theme-jedi': 'Jedi',
@@ -162,6 +171,15 @@ const translations = {
         'contact-send': 'Send message',
         'form-status': 'Form status will appear here',
         'form-fallback': 'If the form does not work, contact me directly at',
+
+        // Form messages
+        'form-sending': 'Sending...',
+        'form-success': 'Your message has been sent successfully!',
+        'form-error': 'An error occurred. Please try again.',
+        'form-error-fetch': 'The form cannot be processed at this time. Please send your message directly by email.',
+        'form-error-name': 'Name is required',
+        'form-error-email': 'Email is required',
+        'form-error-message': 'Message is required',
 
         // Theme
         'theme-jedi': 'Jedi',

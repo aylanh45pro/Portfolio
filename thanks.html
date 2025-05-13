@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci | Aylan Haddouchi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .thanks-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .thanks-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .thanks-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .thanks-text {
+            font-size: 1.2rem;
+            color: var(--light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .back-btn:hover {
+            color: #000;
+        }
+        
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .back-btn:hover::before {
+            width: 100%;
+        }
+        
+        @keyframes starMovement {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .star {
+            animation: starMovement 4s infinite ease-in-out;
+            animation-delay: calc(var(--i) * 0.5s);
+        }
+    </style>
+</head>
+<body>
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="BGHyperspace.mp4" type="video/mp4">
+    </video>
+    
+    <div class="overlay"></div>
+    
+    <div class="thanks-container">
+        <div class="thanks-icon">
+            <i class="jedi-icon fab fa-jedi-order"></i>
+        </div>
+        <h1 class="thanks-title" id="thanks-title">Message envoyé avec succès!</h1>
+        <p class="thanks-text" id="thanks-text">Merci pour votre message. Je vous répondrai dès que possible.</p>
+        <a href="index.html" class="back-btn" id="back-home">Retour à l'accueil</a>
+    </div>
+    
+    <script src="js/translations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentLang = localStorage.getItem('language') || 'fr';
+            const currentTheme = localStorage.getItem('theme') || 'jedi';
+            
+            // Appliquer le thème
+            if (currentTheme === 'sith') {
+                document.body.classList.add('sith-theme');
+                document.documentElement.style.setProperty('--primary-rgb', '231, 76, 60');
+            } else {
+                document.body.classList.add('jedi-theme');
+                document.documentElement.style.setProperty('--primary-rgb', '52, 152, 219');
+            }
+            
+            // Traduire le contenu
+            const thanksTitle = document.getElementById('thanks-title');
+            const thanksText = document.getElementById('thanks-text');
+            const backHome = document.getElementById('back-home');
+            
+            if (currentLang === 'en') {
+                thanksTitle.textContent = 'Message sent successfully!';
+                thanksText.textContent = 'Thank you for your message. I will reply as soon as possible.';
+                backHome.textContent = 'Back to home';
+            }
+            
+            // Créer des étoiles
+            const starsContainer = document.createElement('div');
+            starsContainer.className = 'stars-container';
+            document.body.appendChild(starsContainer);
+            
+            const starCount = window.innerWidth < 768 ? 50 : 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.setProperty('--i', i % 10);
+                
+                const size = Math.random() * 2 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                star.style.opacity = Math.random() * 0.8 + 0.2;
+                
+                starsContainer.appendChild(star);
+            }
+        });
+    </script>
+</body>
+</html> 
