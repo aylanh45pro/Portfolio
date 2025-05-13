@@ -8,6 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Barre d'outils supérieure pour mobile -->
+    <div class="mobile-toolbar">
+        <!-- Sélecteur de langue (à gauche) -->
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <!-- Contrôles à droite (thème + hamburger) -->
+        <div class="controls-right">
+            <!-- Sélecteur de thème -->
+            <div class="theme-switcher">
+                <button class="theme-btn active" data-theme="jedi"><i class="fab fa-jedi-order"></i> <span>Jedi</span></button>
+                <button class="theme-btn" data-theme="sith"><i class="fab fa-galactic-republic"></i> <span>Sith</span></button>
+            </div>
+            
+            <!-- Icône de navigation mobile -->
+            <div class="nav-icon">
+                <div class="hamburger"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Boutons originaux pour desktop -->
     <!-- Sélecteur de langue -->
     <div class="language-switcher">
         <button class="lang-btn active" data-lang="fr">FR</button>
@@ -41,9 +65,6 @@
     <div class="overlay"></div>
 
     <nav class="main-nav">
-        <div class="nav-icon">
-            <div class="hamburger"></div>
-        </div>
         <ul class="nav-links">
             <li style="--i: 0"><a href="#about" data-translate="nav-about">À propos</a></li>
             <li style="--i: 1"><a href="#skills" data-translate="nav-skills">Compétences</a></li>
@@ -80,7 +101,7 @@
 
         <section id="about" class="section about-section">
             <div class="section-container">
-                <h2 class="section-title" data-translate="about-title">À propos</h2>
+                <h2 class="section-title" data-text="À propos" data-translate="about-title">À propos</h2>
                 <div class="about-content">
                     <div class="about-text">
                         <p class="highlight-text" data-translate="about-highlight">Développeur web passionné par la création d'applications et de sites internet modernes.</p>
@@ -109,7 +130,7 @@
 
         <section id="skills" class="section skills-section">
             <div class="section-container">
-                <h2 class="section-title" data-text="Compétences">Compétences</h2>
+                <h2 class="section-title" data-text="Compétences" data-translate="skills-title">Compétences</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h3>Front-end</h3>
@@ -159,7 +180,7 @@
 
         <section id="projects" class="section projects-section">
             <div class="section-container">
-                <h2 class="section-title" data-text="Projets">Projets</h2>
+                <h2 class="section-title" data-text="Projets" data-translate="projects-title">Projets</h2>
                 
                 <div class="projects-filter">
                     <button class="filter-btn active" data-filter="all">Tous</button>
@@ -288,11 +309,11 @@
 
         <section id="contact" class="section contact-section">
             <div class="section-container">
-                <h2 class="section-title" data-text="Contact">Contact</h2>
+                <h2 class="section-title" data-text="Contact" data-translate="contact-title">Contact</h2>
                 <div class="contact-content">
                     <div class="contact-info">
-                        <h3>Restons en contact</h3>
-                        <p>N'hésitez pas à me contacter pour discuter de vos projets ou pour toute opportunité de collaboration.</p>
+                        <h3 data-translate="contact-subtitle">Restons en contact</h3>
+                        <p data-translate="contact-text">N'hésitez pas à me contacter pour discuter de vos projets ou pour toute opportunité de collaboration.</p>
                         <div class="contact-links">
                             <a href="mailto:aylan.haddouchi@edu.univ-fcomte.fr
                             " class="contact-link">
@@ -311,19 +332,19 @@
                         </div>
                     </div>
                     <form class="contact-form" id="contactForm" action="process_form.php" method="POST" enctype="multipart/form-data" novalidate>
-                        <div class="form-status">Le statut du formulaire apparaîtra ici</div>
+                        <div class="form-status" data-translate="form-status">Le statut du formulaire apparaîtra ici</div>
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required placeholder="Votre nom" minlength="2" maxlength="100">
+                            <input type="text" id="name" name="name" required placeholder="Votre nom" data-translate="contact-name" minlength="2" maxlength="100">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="Votre email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            <input type="email" id="email" name="email" required placeholder="Votre email" data-translate="contact-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" required placeholder="Votre message" minlength="10" maxlength="1000"></textarea>
+                            <textarea id="message" name="message" required placeholder="Votre message" data-translate="contact-message" minlength="10" maxlength="1000"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        <button type="submit" class="btn btn-primary" data-translate="contact-send">Envoyer le message</button>
                         <p class="form-fallback" style="margin-top: 15px; font-size: 0.9em; color: #ccc; text-align: center;">
-                            Si le formulaire ne fonctionne pas, contactez-moi directement à <a href="mailto:aylan.haddouchi@edu.univ-fcomte.fr" style="color: var(--primary);">aylan.haddouchi@edu.univ-fcomte.fr</a>
+                            <span data-translate="form-fallback">Si le formulaire ne fonctionne pas, contactez-moi directement à</span> <a href="mailto:aylan.haddouchi@edu.univ-fcomte.fr" style="color: var(--primary);">aylan.haddouchi@edu.univ-fcomte.fr</a>
                         </p>
                     </form>
                 </div>

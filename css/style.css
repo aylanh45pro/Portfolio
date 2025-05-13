@@ -514,6 +514,10 @@ body {
     .nav-icon {
         display: block;
         cursor: pointer;
+        position: fixed;
+        top: 10px;
+        right: 15px;
+        z-index: 202;
     }
 
     .nav-links {
@@ -579,7 +583,7 @@ body {
     
     .theme-switcher {
         top: 10px;
-        right: 10px;
+        right: 65px;
     }
 
     .back-to-top {
@@ -615,6 +619,83 @@ body {
         display: block;
         word-break: break-all;
     }
+
+    /* En mode mobile, masquer les boutons fixes et afficher la toolbar */
+    .mobile-toolbar {
+        display: flex;
+    }
+    
+    /* Masquer les sélecteurs fixes en version mobile */
+    .main-nav + .language-switcher, 
+    .main-nav + .theme-switcher,
+    body > .language-switcher:not(.mobile-toolbar .language-switcher),
+    body > .theme-switcher:not(.mobile-toolbar .theme-switcher) {
+        display: none;
+    }
+    
+    /* Ajuster les éléments dans la barre d'outils */
+    .mobile-toolbar .language-switcher, 
+    .mobile-toolbar .theme-switcher {
+        position: static;
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+        z-index: auto;
+    }
+    
+    /* Réorganiser la barre d'outils mobile */
+    .mobile-toolbar {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    /* Créer un conteneur pour le thème et le hamburger */
+    .mobile-toolbar .theme-switcher {
+        margin-right: 5px;
+    }
+    
+    /* Mettre en évidence les boutons actifs dans la barre mobile */
+    .mobile-toolbar .theme-btn.active,
+    .mobile-toolbar .lang-btn.active {
+        box-shadow: 0 0 8px var(--primary);
+    }
+    
+    /* Grouper le hamburger et le sélecteur de thème */
+    .mobile-toolbar .nav-icon {
+        display: flex;
+        align-items: center;
+        margin-left: 0;
+    }
+    
+    /* Ajuster l'espace pour la navigation */
+    .main-nav {
+        padding-top: 60px; /* Ajouter de l'espace pour la barre d'outils */
+    }
+    
+    .hero {
+        padding-top: 50px; /* Ajuster pour la barre d'outils */
+    }
+    
+    /* Ajuster la position du bouton hamburger dans la toolbar */
+    .nav-icon {
+        position: static;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 5px;
+    }
+    
+    .hamburger {
+        width: 25px;
+    }
+    
+    .hamburger::before,
+    .hamburger::after {
+        width: 25px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -626,36 +707,72 @@ body {
         padding: 5px 8px;
         font-size: 0.8em;
     }
+
+    .mobile-toolbar {
+        padding: 8px 10px;
+    }
+    
+    .theme-switcher .theme-btn {
+        padding: 3px 6px;
+        font-size: 0.8em;
+    }
+    
+    .language-switcher .lang-btn {
+        padding: 3px 6px;
+        font-size: 0.8em;
+    }
+    
+    /* Ajuster le positionnement des contrôles droits */
+    .mobile-toolbar .controls-right {
+        gap: 6px;
+    }
 }
 
-/* Correction améliorée pour Samsung S21 et autres téléphones similaires */
 @media (max-width: 412px) {
     .theme-switcher {
         position: fixed;
-        top: 15px;
-        right: 70px;
-        padding: 2px;
+        top: 10px;
+        right: 60px;
+        padding: 1px;
         z-index: 201;
         background: rgba(0, 0, 0, 0.8);
+        border-radius: 15px;
     }
     
     .theme-btn {
-        padding: 4px 6px;
-        font-size: 0.7em;
+        padding: 2px 4px;
+        font-size: 0.6em;
     }
     
     .language-switcher {
         position: fixed;
-        top: 15px;
+        top: 10px;
         left: 5px;
-        padding: 2px;
+        padding: 1px;
         z-index: 201;
         background: rgba(0, 0, 0, 0.8);
+        border-radius: 15px;
     }
     
     .lang-btn {
-        padding: 4px 6px;
-        font-size: 0.7em;
+        padding: 2px 4px;
+        font-size: 0.6em;
+    }
+    
+    .nav-icon {
+        width: 25px;
+        height: 25px;
+        top: 10px;
+        right: 15px;
+    }
+    
+    .hamburger {
+        width: 25px;
+    }
+    
+    .hamburger::before,
+    .hamburger::after {
+        width: 25px;
     }
     
     /* Centrage amélioré de l'indicateur de défilement */
@@ -678,6 +795,42 @@ body {
     .wheel {
         left: 50% !important;
         transform: translateX(-50%) !important;
+    }
+
+    /* Ajuster les icônes dans les boutons de thème */
+    .mobile-toolbar .theme-btn i {
+        font-size: 1.1em;
+    }
+    
+    /* Agrandir légèrement les icônes pour faciliter le clic */
+    .mobile-toolbar .theme-btn {
+        padding: 4px 6px;
+        min-width: 30px;
+        text-align: center;
+    }
+    
+    /* Rendre le hamburger plus visible */
+    .mobile-toolbar .hamburger,
+    .mobile-toolbar .hamburger::before,
+    .mobile-toolbar .hamburger::after {
+        height: 3px;
+        background: var(--primary);
+    }
+}
+
+@media (max-width: 375px) {
+    .mobile-toolbar {
+        padding: 6px 8px;
+    }
+    
+    .theme-btn, .lang-btn {
+        padding: 2px 3px;
+        font-size: 0.65em;
+    }
+    
+    /* Minimiser davantage l'espace entre les éléments */
+    .mobile-toolbar .controls-right {
+        gap: 2px;
     }
 }
 
@@ -1511,4 +1664,179 @@ a, button, .btn, .project-card, .skill-item, .tag, .tech-tag, .stat-item {
 /* Animation lors du hover sur les boutons */
 .btn:hover .btn-icon {
     transform: rotate(180deg);
+}
+
+/* Mobile Toolbar */
+.mobile-toolbar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    z-index: 200;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--primary);
+}
+
+/* Groupe de contrôles à droite */
+.mobile-toolbar .controls-right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+@media (max-width: 768px) {
+    /* En mode mobile, masquer les boutons fixes et afficher la toolbar */
+    .mobile-toolbar {
+        display: flex;
+    }
+    
+    /* Masquer les sélecteurs fixes en version mobile */
+    .main-nav + .language-switcher, 
+    .main-nav + .theme-switcher,
+    body > .language-switcher:not(.mobile-toolbar .language-switcher),
+    body > .theme-switcher:not(.mobile-toolbar .theme-switcher) {
+        display: none;
+    }
+    
+    /* Ajuster les éléments dans la barre d'outils */
+    .mobile-toolbar .language-switcher, 
+    .mobile-toolbar .theme-switcher {
+        position: static;
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+        z-index: auto;
+    }
+    
+    /* Créer un conteneur pour le thème et le hamburger */
+    .mobile-toolbar .theme-switcher {
+        margin-right: 5px;
+    }
+    
+    /* Mettre en évidence les boutons actifs dans la barre mobile */
+    .mobile-toolbar .theme-btn.active,
+    .mobile-toolbar .lang-btn.active {
+        box-shadow: 0 0 8px var(--primary);
+    }
+    
+    /* Ajuster la position du bouton hamburger dans la toolbar */
+    .mobile-toolbar .nav-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: static;
+        width: 30px;
+        height: 30px;
+        margin-left: 0;
+    }
+    
+    .mobile-toolbar .hamburger {
+        width: 25px;
+    }
+    
+    .mobile-toolbar .hamburger::before,
+    .mobile-toolbar .hamburger::after {
+        width: 25px;
+    }
+    
+    /* Ajuster l'espace pour la navigation */
+    .main-nav {
+        padding-top: 60px; /* Ajouter de l'espace pour la barre d'outils */
+    }
+    
+    .hero {
+        padding-top: 50px; /* Ajuster pour la barre d'outils */
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-toolbar {
+        padding: 8px 10px;
+    }
+    
+    .theme-switcher .theme-btn {
+        padding: 3px 6px;
+        font-size: 0.8em;
+    }
+    
+    .language-switcher .lang-btn {
+        padding: 3px 6px;
+        font-size: 0.8em;
+    }
+    
+    /* Ajuster le positionnement des contrôles droits */
+    .mobile-toolbar .controls-right {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 412px) {
+    .mobile-toolbar {
+        padding: 8px 10px;
+    }
+    
+    /* Styles pour les boutons de thème */
+    .mobile-toolbar .theme-btn {
+        padding: 4px 6px;
+        min-width: 30px;
+        text-align: center;
+        font-size: 0.7em;
+    }
+    
+    /* Ajuster les icônes dans les boutons de thème */
+    .mobile-toolbar .theme-btn i {
+        font-size: 1.1em;
+    }
+    
+    .mobile-toolbar .lang-btn {
+        padding: 3px 5px;
+        font-size: 0.7em;
+    }
+    
+    /* Cacher le texte "Jedi" et "Sith" et garder seulement les icônes sur mobile */
+    .mobile-toolbar .theme-btn span {
+        display: none;
+    }
+    
+    /* Réduire l'espace entre les boutons de thème et le hamburger */
+    .mobile-toolbar .controls-right {
+        gap: 3px;
+    }
+    
+    /* Rendre les boutons de thème plus compacts */
+    .mobile-toolbar .theme-switcher {
+        margin-right: 2px;
+        border-radius: 20px;
+    }
+    
+    /* Rendre le hamburger plus visible */
+    .mobile-toolbar .hamburger,
+    .mobile-toolbar .hamburger::before,
+    .mobile-toolbar .hamburger::after {
+        height: 3px;
+        background: var(--primary);
+    }
+}
+
+@media (max-width: 375px) {
+    .mobile-toolbar {
+        padding: 6px 8px;
+    }
+    
+    .mobile-toolbar .theme-btn, 
+    .mobile-toolbar .lang-btn {
+        padding: 2px 3px;
+        font-size: 0.65em;
+    }
+    
+    /* Minimiser davantage l'espace entre les éléments */
+    .mobile-toolbar .controls-right {
+        gap: 2px;
+    }
 } 

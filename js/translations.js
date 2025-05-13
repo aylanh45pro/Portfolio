@@ -58,6 +58,8 @@ const translations = {
         'contact-email': 'Votre email',
         'contact-message': 'Votre message',
         'contact-send': 'Envoyer le message',
+        'form-status': 'Le statut du formulaire apparaîtra ici',
+        'form-fallback': 'Si le formulaire ne fonctionne pas, contactez-moi directement à',
 
         // Autres
         'loading-text': 'Initialisation des systèmes...',
@@ -122,6 +124,8 @@ const translations = {
         'contact-email': 'Your email',
         'contact-message': 'Your message',
         'contact-send': 'Send message',
+        'form-status': 'Form status will appear here',
+        'form-fallback': 'If the form does not work, contact me directly at',
 
         // Others
         'loading-text': 'Initializing systems...',

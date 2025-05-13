@@ -318,4 +318,58 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Solution pour le problème d'affichage sur Samsung S21
+    function fixThemeSwitcherPosition() {
+        // Détecter si nous sommes sur mobile et en orientation portrait
+        const isMobile = window.innerWidth <= 412;
+        const isPortrait = window.innerHeight > window.innerWidth;
+        
+        const languageSwitcher = document.querySelector('.language-switcher');
+        const themeSwitcher = document.querySelector('.theme-switcher');
+        
+        if (isMobile && isPortrait) {
+            // Créer un conteneur pour les deux switchers s'il n'existe pas déjà
+            let container = document.querySelector('.switchers-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'switchers-container';
+                container.style.position = 'fixed';
+                container.style.top = '10px';
+                container.style.left = '10px';
+                container.style.zIndex = '2000';
+                container.style.display = 'flex';
+                container.style.flexDirection = 'column';
+                container.style.gap = '10px';
+                
+                // Retirer les éléments de leur position actuelle
+                languageSwitcher.parentNode.removeChild(languageSwitcher);
+                themeSwitcher.parentNode.removeChild(themeSwitcher);
+                
+                // Ajouter au nouveau conteneur
+                container.appendChild(languageSwitcher);
+                container.appendChild(themeSwitcher);
+                
+                // Injecter au début du body
+                document.body.insertBefore(container, document.body.firstChild);
+                
+                // Réinitialiser les styles qui pourraient interférer
+                languageSwitcher.style.position = 'relative';
+                languageSwitcher.style.top = 'auto';
+                languageSwitcher.style.left = 'auto';
+                languageSwitcher.style.right = 'auto';
+                
+                themeSwitcher.style.position = 'relative';
+                themeSwitcher.style.top = 'auto';
+                themeSwitcher.style.left = 'auto';
+                themeSwitcher.style.right = 'auto';
+            }
+        }
+    }
+
+    // Exécuter la fonction au chargement
+    fixThemeSwitcherPosition();
+
+    // Exécuter à nouveau si la fenêtre est redimensionnée
+    window.addEventListener('resize', fixThemeSwitcherPosition);
 }); 
