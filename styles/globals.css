@@ -65,6 +65,18 @@ body {
   .mobile-menu-link {
     font-size: 1.5rem !important;
   }
+
+  .language-switch button,
+  .theme-switch button {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  /* Réduire l'espacement entre les boutons */
+  .language-switch,
+  .theme-switch {
+    gap: 0.125rem;
+  }
 }
 
 /* Correction du viewport height pour les mobiles */
@@ -100,4 +112,36 @@ body {
   0% { opacity: 0.5; }
   50% { opacity: 1; }
   100% { opacity: 0.5; }
+}
+
+/* Ajouter ces styles pour les switches */
+.language-switch,
+.theme-switch {
+  display: flex;
+  gap: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Styles pour les boutons */
+.language-switch button,
+.theme-switch button {
+  transition: all 0.3s ease;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+/* Assurer que le header reste bien en place */
+.fixed {
+  position: fixed;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Ajouter un effet de transition pour les boutons */
+button {
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.95);
 } 
