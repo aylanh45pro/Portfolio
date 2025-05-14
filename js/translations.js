@@ -6,6 +6,11 @@ const translations = {
         'nav-projects': 'Projets',
         'nav-contact': 'Contact',
 
+        // CV download
+        'cv-download': 'CV téléchargeable',
+        'cv-fr': 'CV Français',
+        'cv-en': 'CV English',
+
         // Hero section
         'hero-title': 'Aylan Haddouchi',
         'hero-subtitle': 'Portfolio',
@@ -100,6 +105,11 @@ const translations = {
         'nav-skills': 'Skills',
         'nav-projects': 'Projects',
         'nav-contact': 'Contact',
+
+        // CV download
+        'cv-download': 'Download CV',
+        'cv-fr': 'French CV',
+        'cv-en': 'English CV',
 
         // Hero section
         'hero-title': 'Aylan Haddouchi',

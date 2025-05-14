@@ -2371,4 +2371,3251 @@ a, button, .btn, .project-card, .skill-item, .tag, .tech-tag, .stat-item {
 
 .btn-primary:hover::after {
     opacity: 1;
-} 
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.jedi-theme .skill-item:hover {
+    transform: translateZ(20px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.sith-theme .skill-item:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Améliorer l'effet des étoiles */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: starTwinkle linear infinite, starMovement linear infinite;
+}
+
+@keyframes starMovement {
+    from {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translateZ(100px) scale(0.5);
+    }
+}
+
+/* Amélioration du gradient pour les boutons primaires */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    opacity: 1;
+}
+
+/* Menu 3D de type Star Wars */
+.sw-perspective-menu {
+    position: relative;
+    margin: 30px 0;
+    perspective: 800px;
+}
+
+.sw-menu-container {
+    transform-style: preserve-3d;
+    transform: rotateX(20deg);
+    transition: transform 0.5s ease;
+}
+
+.sw-menu-container:hover {
+    transform: rotateX(0deg);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateZ(10px);
+}
+
+.projects-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+}
+
+/* Navigation 3D */
+.nav-links {
+    perspective: 1000px;
+}
+
+.nav-links li {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.jedi-theme .nav-links li:hover {
+    transform: translateZ(15px);
+}
+
+.sith-theme .nav-links li:hover {
+    transform: translateZ(10px) scale(1.05);
+}
+
+/* Ajout de l'effet de flottement pour les cartes de compétences */
+.skill-item {
+    transform: translateZ(0
