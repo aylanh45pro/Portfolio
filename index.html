@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Aylan Haddouchi</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -211,6 +212,7 @@
                             <button class="filter-btn" data-filter="html" data-translate="filter-html">HTML</button>
                             <button class="filter-btn" data-filter="cpp" data-translate="filter-cpp">C++</button>
                             <button class="filter-btn" data-filter="sql" data-translate="filter-sql">SQL</button>
+                            <button class="filter-btn" data-filter="C" data-translate="filter-c">C</button>
                         </div>
                     </div>
                 </div>
@@ -222,15 +224,53 @@
                     <span class="tech-tag" data-tech="bootstrap">Bootstrap</span>
                     <span class="tech-tag" data-tech="cpp">C++</span>
                     <span class="tech-tag" data-tech="flask">Flask</span>
+                    <span class="tech-tag" data-tech="sql">SQL</span>
+                    <span class="tech-tag" data-tech="javascript">JavaScript</span>
+                    <span class="tech-tag" data-tech="javafx">JavaFX</span>
+                    <span class="tech-tag" data-tech="audioprocess">Audio Processing</span>
+                    
                 </div>
 
                 <div class="projects-grid">
-                    <article class="project-card" data-languages="python,html,css,flask,sql">
+                    <!-- Application Flask -->
+                    <article class="project-card" data-languages="python,html,css,flask,sql" data-images='[
+                        {
+                            "url": "assets/projects/flask-app/screenshot1.png",
+                            "alt": "Interface principale de l'application Flask",
+                            "title": "Interface principale",
+                            "description": "L'interface principale de l'application avec le tableau de bord et les statistiques en temps réel. Les utilisateurs peuvent voir leurs données importantes et accéder rapidement aux fonctionnalités principales."
+                        },
+                        {
+                            "url": "assets/projects/flask-app/screenshot2.png",
+                            "alt": "Système d'authentification",
+                            "title": "Système d'authentification",
+                            "description": "Le système d'authentification sécurisé avec hachage des mots de passe et gestion des sessions. Les utilisateurs peuvent se connecter en toute sécurité et gérer leur profil."
+                        },
+                        {
+                            "url": "assets/projects/flask-app/screenshot3.png",
+                            "alt": "Gestion des données",
+                            "title": "Gestion des données",
+                            "description": "L'interface de gestion des données avec la base de données SQL. Les utilisateurs peuvent ajouter, modifier et supprimer des informations de manière intuitive."
+                        }
+                    ]' data-details='{
+                        "title": "Application web Flask",
+                        "description": "Développement d'une application web complète utilisant Flask comme framework backend. L'application implémente un système d'authentification sécurisé avec hachage des mots de passe et gestion des sessions. La base de données SQL permet le stockage et la gestion des données utilisateurs et du contenu. L'interface utilisateur, développée avec Bootstrap, offre une expérience responsive et intuitive.",
+                        "features": [
+                            "Système d'authentification sécurisé",
+                            "Gestion des sessions utilisateurs",
+                            "Base de données SQL optimisée",
+                            "Interface responsive avec Bootstrap",
+                            "Système de notifications en temps réel",
+                            "Tableau de bord personnalisé"
+                        ],
+                        "challenges": "Le principal défi était d'implémenter un système d'authentification sécurisé tout en maintenant des performances optimales. La solution a été trouvée en utilisant des techniques de hachage avancées et une gestion efficace des sessions.",
+                        "learnings": "Ce projet m'a permis de maîtriser les concepts de sécurité web, l'optimisation des bases de données, et le développement d'interfaces utilisateur modernes."
+                    }'>
                         <div class="project-card-inner">
                             <div class="project-card-front">
                                 <div class="project-info">
-                                    <h3 data-translate="project1-title">Application web</h3>
-                                    <p class="project-brief" data-translate="project1-brief">Application web utilisant Python avec le framework Flask</p>
+                                    <h3 data-translate="project1-title">Application web Flask</h3>
+                                    <p class="project-brief" data-translate="project1-brief">Application web complète avec authentification et base de données</p>
                                 </div>
                             </div>
                             <div class="project-card-back">
@@ -244,7 +284,7 @@
                                     <span class="tag" data-tech="sql">SQL</span>
                                 </div>
                                 <p class="project-description" data-translate="project1-description">
-                                    Une application web utilisant Python avec le framework Flask, les pages sont créées avec HTML/CSS en utilisant Bootstrap.
+                                    Application web complète avec système d'authentification et base de données SQL. Interface responsive développée avec Bootstrap.
                                 </p>
                                 <div class="project-links">
                                     <a href="https://github.com/aylanh45pro/FlaskWebApp1" class="project-link"><i class="fab fa-github"></i> <span data-translate="project-view-code">Code</span></a>
@@ -253,21 +293,56 @@
                         </div>
                     </article>
 
-                    <article class="project-card" data-languages="java">
+                    <!-- Vocodeur -->
+                    <article class="project-card" data-languages="java" data-images='[
+                        {
+                            "url": "assets/projects/vocodeur/screenshot1.png",
+                            "alt": "Interface principale du vocodeur",
+                            "title": "Interface principale",
+                            "description": "L'interface principale du vocodeur avec les contrôles de base et la visualisation des ondes sonores. Les utilisateurs peuvent charger des fichiers audio et appliquer des effets en temps réel."
+                        },
+                        {
+                            "url": "assets/projects/vocodeur/screenshot2.png",
+                            "alt": "Paramètres des effets audio",
+                            "title": "Paramètres des effets",
+                            "description": "Le panneau de contrôle des effets audio avec des paramètres ajustables pour l'écho, la réverbération et le pitch shift. Chaque effet peut être finement réglé pour obtenir le son souhaité."
+                        },
+                        {
+                            "url": "assets/projects/vocodeur/screenshot3.png",
+                            "alt": "Visualisation spectrale",
+                            "title": "Analyse spectrale",
+                            "description": "La visualisation spectrale en temps réel utilisant la FFT (Transformée de Fourier Rapide). Les utilisateurs peuvent voir la composition fréquentielle du signal audio."
+                        }
+                    ]' data-details='{
+                        "title": "Vocodeur Audio",
+                        "description": "Application de traitement audio développée en Java avec une interface graphique JavaFX. Le vocodeur permet de manipuler des fichiers audio en temps réel avec une variété d'effets : écho, reverb, pitch shift, et filtres paramétriques.",
+                        "features": [
+                            "Traitement audio en temps réel",
+                            "Visualisation des ondes sonores",
+                            "Égaliseur graphique",
+                            "Effets audio multiples",
+                            "Analyse spectrale avec FFT",
+                            "Interface JavaFX intuitive"
+                        ],
+                        "challenges": "Le plus grand défi était d'optimiser les performances du traitement audio en temps réel tout en maintenant une interface utilisateur réactive.",
+                        "learnings": "Ce projet m'a permis d'approfondir mes connaissances en traitement du signal audio et en développement d'interfaces graphiques complexes."
+                    }'>
                         <div class="project-card-inner">
                             <div class="project-card-front">
                                 <div class="project-info">
-                                    <h3 data-translate="project2-title">Vocodeur</h3>
-                                    <p class="project-brief" data-translate="project2-brief">Un vocodeur fonctionnel pour fichiers audio</p>
+                                    <h3 data-translate="project2-title">Vocodeur Audio</h3>
+                                    <p class="project-brief" data-translate="project2-brief">Application de traitement audio en temps réel</p>
                                 </div>
                             </div>
                             <div class="project-card-back">
                                 <h3 data-translate="technologies-title">Technologies</h3>
                                 <div class="project-tags">
                                     <span class="tag" data-tech="java">Java</span>
+                                    <span class="tag" data-tech="javafx">JavaFX</span>
+                                    <span class="tag" data-tech="audioprocess">Audio Processing</span>
                                 </div>
                                 <p class="project-description" data-translate="project2-description">
-                                    Un vocodeur Java fonctionnel, appliquant des effets (écho, modification de hauteur...) à un fichier audio.
+                                    Application de traitement audio avec interface JavaFX. Effets en temps réel et visualisation des ondes sonores.
                                 </p>
                                 <div class="project-links">
                                     <a href="https://github.com/aylanh45pro/VocodeurAH" class="project-link"><i class="fab fa-github"></i> <span data-translate="project-view-code">Code</span></a>
@@ -276,12 +351,46 @@
                         </div>
                     </article>
 
-                    <article class="project-card" data-languages="html,css">
+                    <!-- Site E-Commerce -->
+                    <article class="project-card" data-languages="html,css" data-images='[
+                        {
+                            "url": "assets/projects/ecommerce/screenshot1.png",
+                            "alt": "Page d'accueil du site e-commerce",
+                            "title": "Page d'accueil",
+                            "description": "La page d'accueil du site e-commerce avec une mise en page moderne et responsive. Les produits en vedette sont mis en avant avec des animations fluides."
+                        },
+                        {
+                            "url": "assets/projects/ecommerce/screenshot2.png",
+                            "alt": "Catalogue de produits",
+                            "title": "Catalogue de produits",
+                            "description": "Le catalogue de produits avec système de filtrage et de tri. Les utilisateurs peuvent facilement trouver les produits qui les intéressent grâce aux filtres intuitifs."
+                        },
+                        {
+                            "url": "assets/projects/ecommerce/screenshot3.png",
+                            "alt": "Page produit",
+                            "title": "Détail produit",
+                            "description": "La page de détail produit avec galerie d'images et informations complètes. Les utilisateurs peuvent voir les images en grand format et accéder à toutes les spécifications."
+                        }
+                    ]' data-details='{
+                        "title": "Site E-Commerce",
+                        "description": "Maquette complète d'un site e-commerce moderne développée avec HTML et CSS. Le design inclut une page d'accueil attractive avec une mise en page en grille pour les produits en vedette.",
+                        "features": [
+                            "Design responsive mobile-first",
+                            "Catalogue de produits avec filtres",
+                            "Galerie d'images interactive",
+                            "Panier d'achat dynamique",
+                            "Animations fluides",
+                            "Optimisation des performances"
+                        ],
+                        "challenges": "Le principal défi était de créer une interface utilisateur intuitive et responsive qui fonctionne parfaitement sur tous les appareils.",
+                        "challenges": "Le principal défi était de créer une interface utilisateur intuitive et responsive qui fonctionne parfaitement sur tous les appareils. La solution a impliqué l'utilisation de techniques CSS avancées et une approche mobile-first.",
+                        "learnings": "Ce projet m'a permis de maîtriser les techniques de design responsive et d'optimisation des performances web."
+                    }'>
                         <div class="project-card-inner">
                             <div class="project-card-front">
                                 <div class="project-info">
                                     <h3 data-translate="project3-title">Site E-Commerce</h3>
-                                    <p class="project-brief" data-translate="project3-brief">Site Web E-Commerce non fonctionnel</p>
+                                    <p class="project-brief" data-translate="project3-brief">Maquette de site e-commerce responsive</p>
                                 </div>
                             </div>
                             <div class="project-card-back">
@@ -291,7 +400,7 @@
                                     <span class="tag" data-tech="css">CSS</span>
                                 </div>
                                 <p class="project-description" data-translate="project3-description">
-                                    Un site e-commerce non fonctionnel créé pour s'entraîner avec HTML/CSS
+                                    Maquette de site e-commerce avec design responsive. Interface utilisateur moderne et intuitive.
                                 </p>
                                 <div class="project-links">
                                     <a href="https://github.com/aylanh45pro/VenD-RSite" class="project-link"><i class="fab fa-github"></i> <span data-translate="project-view-code">Code</span></a>
@@ -301,12 +410,30 @@
                         </div>
                     </article>
 
-                    <article class="project-card" data-languages="html,css,bootstrap">
+                    <!-- Site OVHCloud -->
+                    <article class="project-card" data-languages="html,css,bootstrap" data-images='[
+                        {"url": "assets/projects/ovhcloud/screenshot1.png", "alt": "Page d'accueil du site OVHCloud"},
+                        {"url": "assets/projects/ovhcloud/screenshot2.png", "alt": "Section historique"},
+                        {"url": "assets/projects/ovhcloud/screenshot3.png", "alt": "Section impact environnemental"}
+                    ]' data-details='{
+                        "title": "Site OVHCloud",
+                        "description": "Site web complet présentant l'entreprise OVHCloud, développé avec Bootstrap pour un design moderne et responsive. Le site met en valeur l'histoire de l'entreprise, son impact économique et ses initiatives environnementales. L'interface utilise des composants Bootstrap avancés comme les carousels, les modales et les animations de défilement. Le design est optimisé pour les performances avec un chargement progressif des images et une navigation fluide. Le site inclut également des sections interactives présentant les innovations technologiques et les engagements RSE d'OVHCloud.",
+                        "features": [
+                            "Design Bootstrap moderne",
+                            "Animations et transitions fluides",
+                            "Chargement progressif des images",
+                            "Sections interactives",
+                            "Navigation intuitive",
+                            "Contenu riche et structuré"
+                        ],
+                        "challenges": "Le défi principal était de créer un site qui présente efficacement les informations complexes d'OVHCloud tout en restant engageant et facile à naviguer. La solution a impliqué une structure de contenu claire et des animations subtiles.",
+                        "learnings": "Ce projet m'a permis d'approfondir mes compétences en design web et en création de contenu engageant."
+                    }'>
                         <div class="project-card-inner">
                             <div class="project-card-front">
                                 <div class="project-info">
-                                    <h3 data-translate="project4-title">Site présentant OVHCloud</h3>
-                                    <p class="project-brief" data-translate="project4-brief">Présenter OVHCloud sur un site internet en HTML/CSS utilisant Bootstrap</p>
+                                    <h3 data-translate="project4-title">Site OVHCloud</h3>
+                                    <p class="project-brief" data-translate="project4-brief">Site de présentation d'OVHCloud</p>
                                 </div>
                             </div>
                             <div class="project-card-back">
@@ -317,7 +444,7 @@
                                     <span class="tag" data-tech="bootstrap">Bootstrap</span>
                                 </div>
                                 <p class="project-description" data-translate="project4-description">
-                                    Notre projet est de créer un site internet mettant en valeur l'impact économique, environnemental ainsi que l'histoire de la société OVHcloud.
+                                    Site web présentant OVHCloud avec design Bootstrap. Interface moderne et contenu interactif.
                                 </p>
                                 <div class="project-links">
                                     <a href="https://github.com/aylanh45pro/OvhCloudSite" class="project-link"><i class="fab fa-github"></i> <span data-translate="project-view-code">Code</span></a>
@@ -388,5 +515,22 @@
 
     <script src="js/translations.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/project-modal.js"></script>
+
+    <!-- Modal pour les détails du projet -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn">&lt;</button>
+                <div class="carousel-track"></div>
+                <button class="carousel-btn next-btn">&gt;</button>
+            </div>
+            <div class="carousel-description">
+                <h3 class="carousel-title"></h3>
+                <p class="carousel-text"></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html> 
